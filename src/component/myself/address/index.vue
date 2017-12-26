@@ -80,8 +80,107 @@
   			</div>
   		</div>
   	</div>	
+  	<div class="div">
+  		<div class="top">
+  			<p class="p1">
+  				<span class="name">刘德华</span>
+  				<span class="phone">159****1809</span>
+  				<button class="address">学校</button>
+  			</p>
+
+  			<p class="p2">地址：历山大道888号</p>
+  		</div>
+  		<div class="bottom">
+  			<div class="left">
+  				<input type="radio" name="" class="radio">
+  				<span class="mr_address">默认地址</span>
+  			</div>
+  			<div class="right">
+  				<div class="bj_img"></div>
+  				<span class="bj_text">编辑</span>
+  				<div class="sc_img"></div>
+  				<span class="sc_text">删除</span>
+  			</div>
+  		</div>
+  	</div>
+
+  	<div class="div">
+  		<div class="top">
+  			<p class="p1">
+  				<span class="name">刘德华</span>
+  				<span class="phone">159****1809</span>
+  				<button class="address">学校</button>
+  			</p>
+
+  			<p class="p2">地址：历山大道888号</p>
+  		</div>
+  		<div class="bottom">
+  			<div class="left">
+  				<input type="radio" name="" class="radio">
+  				<span class="mr_address">默认地址</span>
+  			</div>
+  			<div class="right">
+  				<div class="bj_img"></div>
+  				<span class="bj_text">编辑</span>
+  				<div class="sc_img"></div>
+  				<span class="sc_text">删除</span>
+  			</div>
+  		</div>
+  	</div>	
+  	<div class="div">
+  		<div class="top">
+  			<p class="p1">
+  				<span class="name">刘德华</span>
+  				<span class="phone">159****1809</span>
+  				<button class="address">学校</button>
+  			</p>
+
+  			<p class="p2">地址：历山大道888号</p>
+  		</div>
+  		<div class="bottom">
+  			<div class="left">
+  				<input type="radio" name="" class="radio">
+  				<span class="mr_address">默认地址</span>
+  			</div>
+  			<div class="right">
+  				<div class="bj_img"></div>
+  				<span class="bj_text">编辑</span>
+  				<div class="sc_img"></div>
+  				<span class="sc_text">删除</span>
+  			</div>
+  		</div>
+  	</div>
+
+  	<div class="div">
+  		<div class="top">
+  			<p class="p1">
+  				<span class="name">刘德华</span>
+  				<span class="phone">159****1809</span>
+  				<button class="address">学校</button>
+  			</p>
+
+  			<p class="p2">地址：历山大道888号</p>
+  		</div>
+  		<div class="bottom">
+  			<div class="left">
+  				<input type="radio" name="" class="radio">
+  				<span class="mr_address">默认地址</span>
+  			</div>
+  			<div class="right">
+  				<div class="bj_img"></div>
+  				<span class="bj_text">编辑</span>
+  				<div class="sc_img"></div>
+  				<span class="sc_text">删除</span>
+  			</div>
+  		</div>
+  	</div>	
    </main>
-  
+
+   <footer>
+   	<button class="new"><span>+</span>新建地址</button>
+   </footer>
+  	
+  	<div style="width:100%; height:1.44rem; "></div>
   </div>
 </template>
 
@@ -106,8 +205,12 @@ export default {
 	
 	#app{
 		width: 100%;
-		height: 100vh;
 		background: #f2f2f2;
+		position: absolute;
+		left: 0;
+		top: 0;
+		z-index: 9999;
+		margin-bottom: 0;
 	}
 
 	header{
@@ -265,5 +368,20 @@ export default {
 
 	.mr_address{
 		font-size: 0.346667rem;
+	}
+
+	/*新建地址*/
+
+	.new{
+		width: calc(100% - 0.533333rem);
+		height: 1.173333rem;
+		background: #f45971;
+		color: #fff;
+		font-size: 0.4rem;
+		border:none;
+		border-radius: 0.106667rem;
+		position: fixed;
+		bottom: 0.266667rem;
+		left: 0.266667rem;
 	}
 </style>
