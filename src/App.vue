@@ -1,6 +1,7 @@
 <template>
 	<div id="app">
 		<!--rem设置75px-->
+		<router-view></router-view>
 		<div class="footer">
 			<ul class="footernav">
 				<li v-for="(data,i) in arr" @click="atv(i)">
