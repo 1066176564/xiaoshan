@@ -233,7 +233,10 @@
 		width:1.946666rem;
 		height:0.506666rem;
 		background: #ffffff;
-		border: 0.013333rem solid #c7c6c6;
+		/*border: 0.013333rem solid #c7c6c6;*/
+		border:0;
+		/*box-shadow: 0 0 0.1rem black;*/
+
 		border-radius: 0.333333rem;
 		color: #c7c6c6;
 	}
