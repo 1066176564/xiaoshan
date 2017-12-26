@@ -1,5 +1,6 @@
 <template>
 	<div id="app">
+		<router-view></router-view>
 		<!--rem设置75px-->
 		<div class="footer">
 			<ul class="footernav">
