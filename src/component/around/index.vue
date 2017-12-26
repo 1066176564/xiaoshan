@@ -16,7 +16,7 @@
       <input type="text" placeholder="搜索关键字、商品、商家"/>
 		</div>
 		<div id="box"></div>
-		
+
 		<div class="banner">
      <swiper1 :data="obj" class="swiper1"></swiper1>
 		</div>
@@ -98,8 +98,9 @@
 				obj:{
 				   img:[
 				   	"./src/img/around/banner_02.png",
-				"./src/img/around/banner_02.png",
-				"./src/img/around/banner_02.png"
+				"https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=4012612991,1000986754&fm=200&gp=0.jpg",
+				"https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=4020869339,1607400907&fm=27&gp=0.jpg",
+				"https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=4257690176,354797734&fm=27&gp=0.jpg"
 				   ]
 				}
 			}
