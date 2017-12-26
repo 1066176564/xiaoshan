@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-   
+   消息
   </div>
 </template>
 
