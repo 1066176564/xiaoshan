@@ -4,7 +4,7 @@
   
 
 	<div id="app">
-		<div class="header">
+		<div class="header" id="header">
   <mu-dropDown-menu :value="value" @change="handleChange" >
     <mu-menu-item value="1" title="北京"/>
     <mu-menu-item value="2" title="天津"/>
@@ -13,8 +13,10 @@
   
   </mu-dropDown-menu>
       <span>搜索</span>
-      <!-- <input type="text" placeholder="搜索关键字、商品、商家"/> -->
+      <input type="text" placeholder="搜索关键字、商品、商家"/>
 		</div>
+		<div id="box"></div>
+		
 		<div class="banner">
      <swiper1 :data="obj" class="swiper1"></swiper1>
 		</div>
@@ -31,7 +33,7 @@
 						
          <div class="tuijian_ol">
 					<ol>
-						<li><button>热门</button></li>
+						<li ><button id="one">热门</button></li>
 						<li><button>小吃快餐</button></li>
 						<li><button>面包甜点</button></li>
 						<li><button>川菜</button></li>
@@ -134,6 +136,15 @@
 		height:2.84rem;
 		width:100%;
 	}
+	#header{
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: 10;
+	}
+	#box{
+		 height: 1.24rem;
+	}
 	.header {
 		width: 100%;
 		height: 1.24rem;
@@ -150,27 +161,28 @@
 		/*width: 2rem;*/
 		text-align: left;
 		height: 1.24rem;
+		padding: 0;
+		margin:0;
+		width: 2.7rem;
 	}
-	.mu-dropDown-menu-text-overflow{
-		height: 1.24rem;
-	}
+
 	.header span{
 		display: block;
-		font-size: 0.36rem;
+		font-size: 0.38rem;
 		position: absolute;
-		top:0.33333rem;
-		left:8.866666rem;
+		top:0.43rem;
+		left:8.7rem;
 	}
 	.header input{
 		position: absolute;
-		left:1.76rem;
+		left:2.3rem;
 		top:0.266666rem;
-		width:6.506666rem;
-		height:0.666666rem;
+		width:5.9rem;
+		height:0.8rem;
 		border-radius: 0.266667rem;
 		background: #f2f2f2;
 		border:none;
-		text-align: center;
+		padding-left: 1rem;
 	}
 	.banner {
 		width: 100%;
@@ -211,7 +223,7 @@
 		margin-top: 0.44rem;
 		margin-left: 0.366666rem;
 	}
-	.tuijian ol li button:hover{
+	.tuijian ol li button:hover,#one{
 		background: #f45971;
 		color: white;
 		border:0;
