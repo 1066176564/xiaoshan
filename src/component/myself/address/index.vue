@@ -1,7 +1,7 @@
 <template>
   <div id="app">
    <header>
-   	<div class="back"></div>
+   	<div class="back" @click="back()"></div>
    	<span class="title">地址选择</span>
    	<div class="information"></div>
    </header>
@@ -91,6 +91,12 @@ export default {
   data () {
     return {
 
+    }
+  },
+
+  methods:{
+    back(){
+      this.$router.go(-1)
     }
   }
 }
