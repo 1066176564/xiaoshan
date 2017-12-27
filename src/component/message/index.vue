@@ -125,12 +125,6 @@ export default {
 
 <style scoped="scoped">
 	
-	#app{
-		width: 100%;
-		height: 100%;
-		position: fixed;
-		/*z-index: 9999;*/
-	}
 
 
 
@@ -163,7 +157,7 @@ export default {
 	.tab1,.tab2,.tab3{
 		background-color: #f2f2f2;
 		width: 100%;
-		height: 100vh;
+		height: 100%;
 	}
 
 
@@ -228,9 +222,11 @@ export default {
 	#nomore{
 		width: 100%;
 		height: 0.333333rem;
+		line-height: 0.333333rem;
 		float: left;
 		margin-top: 0.933333rem;
 		text-align: center;
+		margin-bottom: 2rem;
 	}
 
 
