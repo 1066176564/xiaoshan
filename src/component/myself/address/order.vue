@@ -47,6 +47,7 @@ export default {
 		top: 0;
 		z-index: 9999;
 		margin-bottom: 0;
+
 	}
 
   /* 头部固定 */
