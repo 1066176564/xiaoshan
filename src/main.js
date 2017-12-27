@@ -42,6 +42,8 @@ import set from './component/myself/set/set.vue';
 import order from './component/myself/address/order.vue';
 //修改昵称
 import editname from './component/myself/editname/editname.vue'
+// 收藏
+import collection from './component/myself/address/collection.vue';
 
 import classifyList from './component/classify/classify-list/classify-list.vue';
 import classifyDetails from './component/classify/classify_details/classify_details.vue';
@@ -79,7 +81,8 @@ var router = new VueRouter({
 		{path:"/order",component:order},
 		{path:"/list",component:classifyList},
 		{path:"/details",component:classifyDetails},
-		{path:"/shop",component:classifyShop}
+		{path:"/shop",component:classifyShop},
+		{path:"/collection",component:collection},
 
 	]
 })

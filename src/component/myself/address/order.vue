@@ -210,7 +210,7 @@ export default {
   }
 
   main .div .information>.left .to{
-     width: 0.16rem;
+    width: 0.16rem;
     height: 0.293333rem;
     background:url(../../../img/myself/address/order.png);
     background-size: 6.826667rem 6.826667rem; 

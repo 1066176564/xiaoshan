@@ -32,7 +32,7 @@
    		<div class="five">
    			
    		</div>
-   		<p>收藏</p>
+   		<p @click="to_collection()">收藏</p>
    	</li>
    	<li>
    		<router-link to="/address">
@@ -66,6 +66,12 @@ export default {
   data () {
     return {
 
+    }
+  },
+
+  methods:{
+    to_collection(){
+      this.$router.push({path:"/collection"})
     }
   }
 }
