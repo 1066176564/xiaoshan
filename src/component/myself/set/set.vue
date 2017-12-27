@@ -10,7 +10,6 @@
       <mu-list>
         <mu-list-item title="头像" style="padding-top:0.266667rem; padding-bottom:0.266667rem;" @click="user()">
           <mu-avatar :src="detail.img" slot="rightAvatar"/>
-          <div slot="right" class="fream"></div>
         </mu-list-item>
          <mu-divider />
          
@@ -29,19 +28,16 @@
          <mu-divider />
         <mu-list-item title="微信账号">
           <span slot="right">-解绑</span>
-          <div slot="right" class="fream"></div>
         </mu-list-item>
          <mu-divider />
         <router-link to="/editname">
         <mu-list-item title="昵称">
-          <span slot="right">测试</span>
-          <div slot="right" class="fream"></div>
+          <span slot="right">{{detail.name}}</span>
         </mu-list-item>
         </router-link>
          <mu-divider />
         <mu-list-item title="性别">
           <span slot="right">男</span>
-          <div slot="right" class="fream"></div>
         </mu-list-item>
          <mu-divider />
         <mu-list-item title="账户安全">
@@ -49,8 +45,10 @@
         </mu-list-item>
          <mu-divider />
         <mu-list-item title="注册地区">
-          <span slot="right">{{detail.address}}</span>
-          <div slot="right" class="fream"></div>
+          <span slot="right">
+          {{detail.address}}
+        </span>
+          
         </mu-list-item>
       </mu-list>
     </div>
@@ -113,7 +111,8 @@ export default {
     height: 0.613333rem;
     margin-left: 0.266667rem;
     margin-top: 0.32rem;
-    float: left;
+    position: fixed;
+    left: 0;
   }
   .head span{
     display: block;
