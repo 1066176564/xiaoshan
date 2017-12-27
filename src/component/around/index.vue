@@ -16,7 +16,7 @@
       <input type="text" placeholder="搜索关键字、商品、商家"/>
 		</div>
 		<div id="box"></div>
-
+		
 		<div class="banner">
      <swiper1 :data="obj" class="swiper1"></swiper1>
 		</div>
@@ -98,9 +98,8 @@
 				obj:{
 				   img:[
 				   	"./src/img/around/banner_02.png",
-				"https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=4012612991,1000986754&fm=200&gp=0.jpg",
-				"https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=4020869339,1607400907&fm=27&gp=0.jpg",
-				"https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=4257690176,354797734&fm=27&gp=0.jpg"
+				"./src/img/around/banner_02.png",
+				"./src/img/around/banner_02.png"
 				   ]
 				}
 			}
@@ -120,9 +119,9 @@
 			axios.get(url).then((res)=>{
 				console.log(res.data);
 				this.arr = res.data
-				// for(var i in this.arr){
-				// 	this.obj.img.push(this.arr[i].img)
-				// }
+				for(var i in this.arr){
+					this.obj.img.push(this.arr[i].img)
+				}
 				
 			})
 		},
@@ -233,10 +232,7 @@
 		width:1.946666rem;
 		height:0.506666rem;
 		background: #ffffff;
-		/*border: 0.013333rem solid #c7c6c6;*/
-		border:0;
-		/*box-shadow: 0 0 0.1rem black;*/
-
+		border: 0.013333rem solid #c7c6c6;
 		border-radius: 0.333333rem;
 		color: #c7c6c6;
 	}
