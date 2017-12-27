@@ -15,56 +15,23 @@
    </nav>
 
    <main>
-  	<div class="div">
-      <!-- 店铺 -->
-      <div class="information">
-        <div class="left">
-          <span class="shopping"></span>
-          <span class="text">天俊旗舰店</span>
-          <span class="to"></span>
-        </div>
-        <div class="right">等待付款</div>
-      </div>
-
-      <div class="shop">
-        <dl>
-          <dt>
-            <img src="../../../img/myself/address/my_shop.jpg">
-          </dt>
-          <dd>
-            <p>【双旦礼遇价】天王表正品男表防水自动机械表、钢带男士手表...
-             <span class="number">x1</span> 
-            </p>
-            <p class="type">
-              颜色:<span>黑色</span>
-              尺码:<span>男士</span>
-            </p>
-          </dd>
-        </dl>
-      </div>
-
-      <div class="money">
-        <p>共<span>1</span>件商品&nbsp&nbsp需支付:<span class="price">￥1099.00</span>(含运费:<span>0.00</span>)</p>
-      </div>
-
-      <div class="operation">
-        <button>去支付</button>
-        <button>取消订单</button>
-        <button>联系卖家</button>
-      </div>
-
-    </div>
+  	<all v-if="change == 0"></all>
+  	<order1  v-if="change == 1"></order1>
+  	<order2  v-if="change == 2"></order2>
+  	<order3  v-if="change == 3"></order3>
+  	<order4  v-if="change == 4"></order4>
    </main>
 
-   <footer>
-   	
-   </footer>
-  	
   	<!-- <div style="width:100%; height:1.44rem;"></div> -->
   </div>
 </template>
 
 <script>
+	import all from "./order/order_01.vue"
+	import order1 from "./order/order_02.vue"
+	import order2 from "./order/order_03.vue"
+	import order3 from "./order/order_04.vue"
+	import order4 from "./order/order_05.vue"
 export default {
   name: 'app',
   data () {
@@ -82,6 +49,13 @@ export default {
     dj(i){
       this.change=i;
     }
+  },
+  components:{
+  	"all":all,
+  	"order1":order1,
+  	"order2":order2,
+  	"order3":order3,
+  	"order4":order4
   }
 }
 </script>
@@ -173,6 +147,7 @@ export default {
     background-size: 0.8rem 0.04rem;
   }
 
+<<<<<<< HEAD
 	/* 中间的部分 */
   main .div{
     width: 100%;
@@ -324,4 +299,6 @@ export default {
   }
 
   
+=======
+>>>>>>> 1c5396f856ecfa0b9bbc037b14f2875cc207c719
 </style>
