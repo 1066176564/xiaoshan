@@ -30,14 +30,23 @@ import gsdt_detail from './component/home/home-gsdt/detail/gsdt_detail';
 import classify from './component/classify/index.vue';
 import message from './component/message/index.vue';
 import myself from './component/myself/index.vue';
+//周边
 import around from './component/around/index.vue';
+//地址
 import address from './component/myself/address/index.vue';
+//新建地址
 import newaddress from './component/myself/address/new_address.vue';
+//设置
 import set from './component/myself/set/set.vue';
+//我的订单
 import order from './component/myself/address/order.vue';
+//修改昵称
+import editname from './component/myself/editname/editname.vue'
+
 import classifyList from './component/classify/classify-list/classify-list.vue';
 import classifyDetails from './component/classify/classify_details/classify_details.vue';
 import classifyShop from './component/classify/classify_shop/classify_shop.vue';
+
 var router = new VueRouter({
 	mode: 'history',
 	routes:[
@@ -65,6 +74,7 @@ var router = new VueRouter({
 		{path:"/address",component:address},
 		{path:"/newaddress",component:newaddress},
 		{path:"/set",component:set},
+		{path:"/editname",component:editname},
 		{path:"/order",component:order},
 		{path:"/list",component:classifyList},
 		{path:"/details",component:classifyDetails},
