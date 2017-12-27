@@ -177,7 +177,7 @@
    </main>
 
    <footer>
-   	<button class="new"><span>+</span>新建地址</button>
+   	<button class="new" @click="news()"><span>+</span>新建地址</button>
    </footer>
   	
   	<div style="width:100%; height:1.44rem; "></div>
@@ -196,6 +196,10 @@ export default {
   methods:{
     back(){
       this.$router.go(-1)
+    },
+
+    news(){
+    	this.$router.push({path:"/newaddress"})
     }
   }
 }
@@ -383,5 +387,10 @@ export default {
 		position: fixed;
 		bottom: 0.266667rem;
 		left: 0.266667rem;
+	}
+
+	.new span{
+		margin-right: 0.32rem; 
+		font-size: 0.533333rem;
 	}
 </style>

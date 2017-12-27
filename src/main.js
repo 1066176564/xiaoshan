@@ -28,6 +28,7 @@ import message from './component/message/index.vue';
 import myself from './component/myself/index.vue';
 import around from './component/around/index.vue';
 import address from './component/myself/address/index.vue';
+import newaddress from './component/myself/address/new_address.vue';
 
 var router = new VueRouter({
 	mode: 'history',
@@ -38,7 +39,8 @@ var router = new VueRouter({
 		{path:"/home",component:home},
 		{path:"/myself",component:myself},
 		{path:"/around",component:around},
-		{path:"/address",component:address}
+		{path:"/address",component:address},
+		{path:"/newaddress",component:newaddress}
 	]
 })
 
