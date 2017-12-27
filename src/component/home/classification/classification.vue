@@ -56,96 +56,97 @@
 }
 .backimg1{
   display: block;
-  width: 1.226667rem;
+  width: 60.4%;
   height: 1.226667rem;
   background: url(../../../img/home/h_one.png) no-repeat;
   background-size: 10.373333rem 26.626667rem;
   background-position: 0 -2.106667rem;
-  margin:0 0 0 0.4rem;
+  margin:0 0 0 20%;
+  float: left;
 }
 .backimg2{
   display: block;
-  width:  1.2rem;
+  width:  60%;
   height: 1.226667rem;
   background: url(../../../img/home/h_one.png) no-repeat;
   background-size: 10.373333rem 26.626667rem;
   background-position: -2.72rem -2.106667rem;
-  margin:0 0 0 0.4rem;
+  margin:0 0 0 20%;
 }
 .backimg3{
   display: block;
-  width: 1.2rem;
+  width:  60%;
   height: 1.226667rem;
   background: url(../../../img/home/h_one.png) no-repeat;
   background-size: 10.373333rem 26.626667rem;
   background-position: -5.373333rem -2.106667rem;
-  margin:0 0 0 0.4rem;
+  margin:0 0 0 20%;
 }
 .backimg4{
   display: block;
-  width: 1.2rem;
+  width:  60%;
   height: 1.226667rem;
   background: url(../../../img/home/h_one.png) no-repeat;
   background-size: 10.373333rem 26.626667rem;
   background-position: -8.026667rem -2.106667rem;
-  margin:0 0 0 0.4rem;
+  margin:0 0 0 20%;
 }
 .backimg5{
   display: block;
-  width: 1.226667rem;
+  width:  60.4%;
   height: 1.226667rem;
   background: url(../../../img/home/h_one.png) no-repeat;
   background-size: 10.373333rem 26.626667rem;
   background-position: 0 -3.813333rem;
-  margin:0 0 0 0.4rem;
+  margin:0 0 0 20%;
 }
 .backimg6{
   display: block;
-  width: 1.226667rem;
+  width:  60%;
   height: 1.2rem;
   background: url(../../../img/home/h_one.png) no-repeat;
   background-size: 10.373333rem 26.626667rem;
   background-position: -2.72rem -3.813333rem;
-  margin:0 0 0 0.4rem;
+  margin:0 0 0 20%;
 }
 .backimg7{
   display: block;
-  width: 1.2rem;
+  width:  60%;
   height: 1.2rem;
   background: url(../../../img/home/h_one.png) no-repeat;
   background-size: 10.373333rem 26.626667rem;
   background-position: -5.373333rem -3.813333rem;
-  margin:0 0 0 0.4rem;
+  margin:0 0 0 20%;
 }
 .backimg8{
   display: block;
-  width: 1.2rem;
+  width:  60%;
   height: 1.2rem;
   background: url(../../../img/home/h_one.png) no-repeat;
   background-size: 10.373333rem 26.626667rem;
   background-position: -8.026667rem -3.813333rem;
-  margin:0 0 0 0.4rem;
+  margin:0 0 0 20%;
 }
 .backimg9{
   display: block;
-  width: 1.2rem;
+  width:  60%;
   height: 1.2rem;
   background: url(../../../img/home/h_one.png) no-repeat;
   background-size: 10.373333rem 26.626667rem;
   background-position: 0 -5.866667rem;
-  margin:0 0 0 0.4rem;
+  margin:0 0 0 20%;
 }
 .backimg10{
   display: block;
-  width: 1.226667rem;
+  width:  60.4%;
   height: 1.2rem;
   background: url(../../../img/home/h_one.png) no-repeat;
   background-size: 10.373333rem 26.626667rem;
-  background-position: -2.72rem -5.866667rem;
-  margin:0 0 0 0.4rem;
+  background-position: -2.71rem -5.866667rem;
+  margin:0 0 0 20%;
 }
 ul li{
-	width: 2.0rem;
+	width: 20%;
 	height: 1.8rem;
 	float: left;
 	margin-top: 0.533333rem;

@@ -16,6 +16,7 @@
 
 <style scoped="scoped">
 .headone{
+  width: 100%;
   position: fixed;
   top: 0;
   z-index: 2;
@@ -33,7 +34,7 @@
 }
 .left{
   display: block;
-  width: 0.56rem;
+  width: 5.6%;
   height: 0.56rem;
   background: url(../../../img/home/h_one.png) no-repeat;
   background-size: 10.373333rem 26.626667rem;
@@ -43,7 +44,7 @@
 }
 .right{
   display: block;
-  width: 0.64rem;
+  width: 6.4%;
   height: 0.586667rem;
   background: url(../../../img/home/h_one.png) no-repeat;
   background-size: 10.373333rem 26.626667rem;
@@ -53,7 +54,7 @@
 }
 .headone p{
   float: left;
-  width: 8.266667rem;
+  width: 82.6%;
   height: 1.133333rem;
   text-align: center;
   line-height: 1.133333rem;
