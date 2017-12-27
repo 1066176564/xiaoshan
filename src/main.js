@@ -23,6 +23,10 @@ Vue.use(VueLazyLoad,{
 })
 //路由组件
 import home from './component/home/index.vue';
+//公司动态
+import gsdt from './component/home/home-gsdt/gsdt.vue';
+import gsdt_detail from './component/home/home-gsdt/detail/gsdt_detail';
+
 import classify from './component/classify/index.vue';
 import message from './component/message/index.vue';
 import myself from './component/myself/index.vue';
@@ -31,20 +35,41 @@ import address from './component/myself/address/index.vue';
 import newaddress from './component/myself/address/new_address.vue';
 import set from './component/myself/set/set.vue';
 import order from './component/myself/address/order.vue';
-
+import classifyList from './component/classify/classify-list/classify-list.vue';
+import classifyDetails from './component/classify/classify_details/classify_details.vue';
+import classifyShop from './component/classify/classify_shop/classify_shop.vue';
 var router = new VueRouter({
 	mode: 'history',
 	routes:[
 		{path:"/",redirect:"home"},
 		{path:"/classify",component:classify},
 		{path:"/message",component:message},
-		{path:"/home",component:home},
+		{
+			path:"/home",
+			component:home,
+			children:[
+				{
+					path:"/home/gsdt",
+					component:gsdt,
+					children:[
+						{
+							path:"/home/gsdt/gsdt_detail",
+							component:gsdt_detail
+						}
+					]
+				}
+			]
+		},
 		{path:"/myself",component:myself},
 		{path:"/around",component:around},
 		{path:"/address",component:address},
 		{path:"/newaddress",component:newaddress},
 		{path:"/set",component:set},
-		{path:"/order",component:order}
+		{path:"/order",component:order},
+		{path:"/list",component:classifyList},
+		{path:"/details",component:classifyDetails},
+		{path:"/shop",component:classifyShop}
+
 	]
 })
 

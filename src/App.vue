@@ -43,9 +43,6 @@
 </script>
 
 <style scoped="scoped">
-	#app{
-		background: #F2F2F2;
-	}
 	.footer{
 		height: 1.306666rem;
 		width: 100%;

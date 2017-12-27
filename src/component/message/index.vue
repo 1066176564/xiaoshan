@@ -4,7 +4,7 @@
 	   <span>消息中心</span>
 	</div>
 
-<div id="list">
+
   <mu-tabs :value="activeTab" @change="handleTabChange">
     <mu-tab value="tab1" title="订单消息"/>
     <mu-tab value="tab2" title="系统消息"/>
@@ -42,7 +42,6 @@
     			</div>
     		</div>
     	</li>
-
     	<div id="nomore">没有更多了</div>
     </ul> 
   </div>
@@ -59,8 +58,6 @@
   <div v-if="activeTab === 'tab3'" class="tab3">
     
   </div>
-
-</div>
 
 
 
@@ -93,7 +90,6 @@
 
 
 
-  <div style="height:1.306667rem;"></div>
   </div>
 </template>
 
@@ -124,10 +120,10 @@ export default {
 </script>
 
 <style scoped="scoped">
-	
-
-
-
+	#app{
+		height: 20rem;
+		background-color: #f2f2f2;
+	}
     .mu-tabs{
     	background-color: white;
     }
@@ -140,13 +136,16 @@ export default {
 	#msg_header{
 		width: 100%;
 		height: 1.2rem;
-		line-height: 1.2rem;
+		background-color: white;
 		border-bottom: 0.013333rem solid #f2f2f2;
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		justify-content: space-around;
 		font-size: 0.533333rem;
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: 9999;
 	}
 	#msg_header span:nth-child(1){
 		margin-left: 0.133333rem;
@@ -154,12 +153,8 @@ export default {
 	#msg_header span:nth-child(2){
 		margin-left: 31%;
 	}
-	.tab1,.tab2,.tab3{
-		background-color: #f2f2f2;
-		width: 100%;
-		height: 100%;
-	}
 
+	
 
 	.tab1 ul{
 		position: relative;
@@ -167,10 +162,9 @@ export default {
 	}
 
 	.tab1 ul li{
-		width: 9.466667rem;
+		width: 94%;
 		height: 2.866667rem;
-		margin-left: 0.266667rem;
-		float: left;
+		margin-left: 3%;
 		margin-top: 0.373333rem;
 		background-color: white;
 		border-radius: 0.333333rem;
@@ -222,11 +216,10 @@ export default {
 	#nomore{
 		width: 100%;
 		height: 0.333333rem;
-		line-height: 0.333333rem;
-		float: left;
+		line-height: 0.133333rem;
 		margin-top: 0.933333rem;
 		text-align: center;
-		margin-bottom: 2rem;
+		margin-bottom: 0.5rem;
 	}
 
 
