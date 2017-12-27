@@ -1,12 +1,13 @@
 <template>
   <div id="app">
 
-  	<div class="head">
+    <div class="headone">
+      <span class="left"></span>
+      <p>小善</p>
+      <span class="right"></span>
+    </div>
 
-	    <span class="left"></span>
-	    <p>小善</p>
-	    <span class="right"></span>
-	    
+  	<div class="headtwo">
       <banners class="banner" :data="obj"></banners> 
   	</div>
 
@@ -14,7 +15,15 @@
 </template>
 
 <style scoped="scoped">
-.head{
+.headone{
+  position: fixed;
+  top: 0;
+  z-index: 2;
+  background: url(../../../img/home/h_one.png) no-repeat;
+  background-size: 10.373333rem 26.626667rem;
+  background-position: 0 -18.373333rem;
+}
+.headtwo{
   width: 100%;
   height: 5.573333rem;
   float: left;
@@ -42,7 +51,7 @@
   float: right;
   margin: 0.253333rem 0.266667rem 0 0;
 }
-.head p{
+.headone p{
   float: left;
   width: 8.266667rem;
   height: 1.133333rem;
@@ -54,6 +63,7 @@
 .banner{
   width: 100%;
   height: 3.8rem;
+  margin-top: 1.133333rem;
 }
 
 

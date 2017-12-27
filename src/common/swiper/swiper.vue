@@ -29,6 +29,7 @@
       	imgs:"",
       	
         swiperOption: {
+            loop: true,
         	 spaceBetween: 30,
           centeredSlides: true,
         	autoplay: {

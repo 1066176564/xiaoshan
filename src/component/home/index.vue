@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+
     <heads></heads>
     <classification></classification>
 	  <dynamic></dynamic>
@@ -7,6 +8,8 @@
 	  <integral></integral>
 	  <brand></brand>
 	  <Recommend></Recommend>
+
+   
   </div>
 </template>
 
