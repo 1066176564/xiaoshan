@@ -178,7 +178,7 @@
   			<mu-icon value="screen_share"/><p>分享</p>
   		</div>
   </div>
-  <div class="background" v-if='show'>
+  <div class="background" v-if='showc'>
   	<div class="background_div">
   		<div class="background_li">
   			<h1>分享到</h1>
@@ -210,6 +210,7 @@ export default {
     	showa:true,
        showb:false,
     	show:false,
+    	showc:false,
     	showx:false,
     	shows:false,
     	showw:true,
@@ -243,7 +244,7 @@ export default {
   methods:{
   	share(){
   		this.kuan=false;
-  		 this.show=true;
+  		 this.showc=true;
   	},
   	kuans(){
   		this.kuan=true;
@@ -261,6 +262,7 @@ export default {
     // 点击关闭
     close(){
       this.show=false;
+      this.showc=false;
       this.shows=false;
       this.showx=false;
        this.hid=true;
