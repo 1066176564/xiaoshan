@@ -50,9 +50,9 @@ import classifyShop from './component/classify/classify_shop/classify_shop.vue';
 var router = new VueRouter({
 	mode: 'history',
 	routes:[
-		{path:"/",redirect:"home"},
-		{path:"/classify",component:classify},
-		{path:"/message",component:message},
+		{path:"/",redirect:"home",meta:{navShow:true}},
+		{path:"/classify",component:classify,meta:{navShow:true}},
+		{path:"/message",component:message,meta:{navShow:true}},
 		{
 			path:"/home",
 			component:home,
@@ -68,9 +68,10 @@ var router = new VueRouter({
 					]
 				}
 			]
+			,meta:{navShow:true}
 		},
-		{path:"/myself",component:myself},
-		{path:"/around",component:around},
+		{path:"/myself",component:myself,meta:{navShow:true}},
+		{path:"/around",component:around,meta:{navShow:true}},
 		{path:"/address",component:address},
 		{path:"/newaddress",component:newaddress},
 		{path:"/set",component:set},
