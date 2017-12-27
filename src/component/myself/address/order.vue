@@ -146,8 +146,6 @@ export default {
     background: url(../../../img/myself/address/underline.png) no-repeat bottom center;
     background-size: 0.8rem 0.04rem;
   }
-
-<<<<<<< HEAD
 	/* 中间的部分 */
   main .div{
     width: 100%;
@@ -297,8 +295,4 @@ export default {
     border:1px solid #f45971;
     color: #f45971;
   }
-
-  
-=======
->>>>>>> 1c5396f856ecfa0b9bbc037b14f2875cc207c719
 </style>
