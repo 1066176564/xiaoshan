@@ -1,22 +1,39 @@
 <template>
   <div id="myself-head">
-   <div class="head">
-   	<p>没避暑</p>
-   </div>
-   <!-- 头像 -->
-   <div class="Avatar">
-   	<img src="../../../img/myself/q-q.jpg">
-   </div>
+  	<router-link to="/set">
+  		<div class="head">
+	   		<p>{{detail.username}}</p>
+		</div>
+		   <!-- 头像 -->
+		<div class="Avatar">
+		   	<img :src="detail.img">
+		</div>
+  	</router-link>	
+   
   </div>
 </template>
 
 <script>
+import axios from "axios"
+
 export default {
   name: 'myself-head',
   data () {
     return {
-
+    	detail:[]
     }
+  },
+  created(){
+  	this.getlist()
+  },
+  methods:{
+  	getlist(){
+  		var url = "./src/api/myself-person.json"
+  		axios.get(url).then((res)=>{
+  			this.detail = res.data[0]
+  			console.log(this.detail)
+  		})
+  	}
   }
 }
 </script>
