@@ -4,16 +4,21 @@
   
 
 	<div id="app">
-		<div class="header" id="header">
-  <mu-dropDown-menu :value="value" @change="handleChange" >
-    <mu-menu-item value="1" title="北京"/>
-    <mu-menu-item value="2" title="天津"/>
-    <mu-menu-item value="3" title="河北"/>
-    <mu-menu-item value="4" title="上海"/>
-  
-  </mu-dropDown-menu>
+	<div class="header" id="header">
+			  	<div id="cityBox">
+			  	 <select id="city">
+			  		<option>北京</option>
+			  		<option>上海</option>
+			  		<option>河北</option>
+			  		<option>天津</option>
+			  		<option>魔都</option>
+			  		<option>帝都</option>
+			  	 </select>
+			  </div>
       <span>搜索</span>
+      <div id="serach">
       <input type="text" placeholder="搜索关键字、商品、商家"/>
+      </div>
 		</div>
 		<div id="box"></div>
 		
@@ -58,10 +63,18 @@
 				</div>
 			</div>
 			<div v-if="activeTab === 'tab2'">
-				<h2>Tab Two</h2>
-				<p>
-					这是第二个 tab
-				</p>
+				<div class="tuijian_ul">
+				 	<ul>
+				 		<li v-for="data in arr">
+				 				<img :src="data.img" />
+				 				<p class="p4">{{data.title}}</p>
+				 				<p class="p1">{{data.p}}</p>
+				 				<p class="p2">{{data.p1}}</p>
+				 				<p class="p3">{{data.p2}}</p>
+				 				<p class="p5">{{data.p3}}</p>
+				 		</li>
+				 	</ul>
+				 </div>
 			</div>
 			<div v-if="activeTab === 'tab3'">
 				<h2>Tab Three</h2>
@@ -119,9 +132,9 @@
 			axios.get(url).then((res)=>{
 				console.log(res.data);
 				this.arr = res.data
-				for(var i in this.arr){
-					this.obj.img.push(this.arr[i].img)
-				}
+				// for(var i in this.arr){
+				// 	this.obj.img.push(this.arr[i].img)
+				// }
 				
 			})
 		},
@@ -132,6 +145,7 @@
 </script>
 
 <style scoped="scoped">
+
 	.swiper1{
 		height:2.84rem;
 		width:100%;
@@ -149,40 +163,44 @@
 		width: 100%;
 		height: 1.24rem;
 		background: white;
-		position: relative;
+		padding-top:0.4rem;
 	}	
-	.header p{
-		/*font-size: 0.36rem;*/
-		/*margin-left: 0.233333rem;*/
-		/*line-height: 1.24rem;*/
+
+
+	#city{
+		border:0;
+		font-size: 0.4rem;
 
 	}
-	.mu-dropDown-menu{
-		/*width: 2rem;*/
-		text-align: left;
-		height: 1.24rem;
-		padding: 0;
-		margin:0;
-		width: 2.7rem;
+	#cityBox{
+		float: left;
+		width: 15%;
+		padding-left: 0.066667rem;
 	}
-
 	.header span{
 		display: block;
+		width: 15%;
 		font-size: 0.38rem;
-		position: absolute;
-		top:0.43rem;
-		left:8.7rem;
+		float:right;
+		
+		text-align: center;
+
+	}
+
+
+	#serach{
+		width: 70%;
+		float: left;
 	}
 	.header input{
-		position: absolute;
-		left:2.3rem;
-		top:0.266666rem;
-		width:5.9rem;
-		height:0.8rem;
+		float: right;
+		/*margin: 0 8%;*/
+		width:100%;
+		height:0.6rem;
 		border-radius: 0.266667rem;
 		background: #f2f2f2;
 		border:none;
-		padding-left: 1rem;
+		padding-left: 1.5rem;
 	}
 	.banner {
 		width: 100%;
@@ -210,18 +228,21 @@
 		background: #f2f2f2;
 	}
 	.tuijian_ol{
-		width:9.48rem;
-		height:1.813333rem;
+		width:100%;
+		/*height:1.813333rem;*/
 	}
 	.tuijian ol{
-		width:9.48rem;
+		width:100%;
 		height:1.813333rem;
-		margin-left: 0.266666rem;
+		display: flex;
+		justify-content: space-around;
+		flex-wrap: wrap;
 	}
 	.tuijian ol li{
+		box-sizing: content-box;
 		float: left;
-		margin-top: 0.44rem;
-		margin-left: 0.366666rem;
+		width: 21%;
+		padding-top: 0.333333rem;
 	}
 	.tuijian ol li button:hover,#one{
 		background: #f45971;
@@ -229,19 +250,19 @@
 		border:0;
 	}
 	.tuijian ol li button{
-		width:1.946666rem;
+		width:100%;
 		height:0.506666rem;
 		background: #ffffff;
 		border: 0.013333rem solid #c7c6c6;
 		border-radius: 0.333333rem;
 		color: #c7c6c6;
 	}
-	.tuijian .tuijian_ul{
+	.tuijian_ul{
 		width:94%;
 		height:8.4rem;
 		margin: 0 auto;
 	}
-	.tuijian .tuijian_ul ul li{
+	 .tuijian_ul ul li{
 		width:100%;
 		height:2.506666rem;
 		background: white;
@@ -250,14 +271,14 @@
 		box-shadow: 0 0 0.206667rem #9a9a9a;
 
 	}
-	.tuijian .tuijian_ul ul li img{
+	 .tuijian_ul ul li img{
 		width:1.973333rem;
 		height:1.973333rem;
 		margin-top: 0.266666rem;
 		margin-left: 0.266666rem;
 		float: left;
 	}
-	.tuijian .tuijian_ul ul li{
+	 .tuijian_ul ul li{
 		position: relative;
 	}
 	  .p4{

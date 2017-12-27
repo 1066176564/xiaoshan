@@ -23,6 +23,10 @@ Vue.use(VueLazyLoad,{
 })
 //路由组件
 import home from './component/home/index.vue';
+//公司动态
+import gsdt from './component/home/home-gsdt/gsdt.vue';
+import gsdt_detail from './component/home/home-gsdt/detail/gsdt_detail';
+
 import classify from './component/classify/index.vue';
 import message from './component/message/index.vue';
 import myself from './component/myself/index.vue';
@@ -40,7 +44,22 @@ var router = new VueRouter({
 		{path:"/",redirect:"home"},
 		{path:"/classify",component:classify},
 		{path:"/message",component:message},
-		{path:"/home",component:home},
+		{
+			path:"/home",
+			component:home,
+			children:[
+				{
+					path:"/home/gsdt",
+					component:gsdt,
+					children:[
+						{
+							path:"/home/gsdt/gsdt_detail",
+							component:gsdt_detail
+						}
+					]
+				}
+			]
+		},
 		{path:"/myself",component:myself},
 		{path:"/around",component:around},
 		{path:"/address",component:address},

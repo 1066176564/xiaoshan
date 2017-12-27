@@ -136,14 +136,16 @@ export default {
 	#msg_header{
 		width: 100%;
 		height: 1.2rem;
-		line-height: 1.2rem;
 		background-color: white;
 		border-bottom: 0.013333rem solid #f2f2f2;
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		justify-content: space-around;
 		font-size: 0.533333rem;
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: 9999;
 	}
 	#msg_header span:nth-child(1){
 		margin-left: 0.133333rem;
@@ -157,7 +159,6 @@ export default {
 	.tab1 ul{
 		position: relative;
 		width: 100%;
-
 	}
 
 	.tab1 ul li{
