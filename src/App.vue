@@ -4,7 +4,7 @@
 		<router-view></router-view>
 		</keep-alive>
 		<!--rem设置75px-->
-		<div class="footer">
+		<div class="footer" v-show="$route.meta.navShow">
 			<ul class="footernav">
 				<li v-for="(data,i) in arr" @click="atv(i)">
 					<router-link :to="router[i]" :class="{active:change == i}" >

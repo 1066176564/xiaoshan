@@ -5,7 +5,7 @@
 	</div>
 
 
-  <mu-tabs :value="activeTab" @change="handleTabChange">
+  <mu-tabs :value="activeTab" @change="handleTabChange" id="tabs">
     <mu-tab value="tab1" title="订单消息"/>
     <mu-tab value="tab2" title="系统消息"/>
     <mu-tab value="tab3" @active="handleActive" title="互动消息"/>
@@ -121,7 +121,7 @@ export default {
 
 <style scoped="scoped">
 	#app{
-		height: 20rem;
+		height: 14rem;
 		background-color: #f2f2f2;
 	}
     .mu-tabs{
@@ -136,30 +136,29 @@ export default {
 	#msg_header{
 		width: 100%;
 		height: 1.2rem;
-		line-height: 1.2rem;
 		background-color: white;
 		border-bottom: 0.013333rem solid #f2f2f2;
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		justify-content: space-around;
 		font-size: 0.533333rem;
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: 9999;
 	}
-	#msg_header span:nth-child(1){
-		margin-left: 0.133333rem;
+	#tabs{
+		margin-top: 1.2rem;
+		z-index: 9999;
+		position: fixed;
+		top: 0;
+		left: 0;
 	}
-	#msg_header span:nth-child(2){
-		margin-left: 31%;
+	.tab1,.tab2,.tab3{
+		margin-top: 2.5rem;
 	}
 
 	
-
-	.tab1 ul{
-		position: relative;
-		width: 100%;
-
-	}
-
 	.tab1 ul li{
 		width: 94%;
 		height: 2.866667rem;
