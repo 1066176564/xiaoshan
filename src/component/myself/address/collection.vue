@@ -9,31 +9,7 @@
    <div style="width:100%; height:1.253333rem;"></div>
 
    <main>
-  	<div class="div">
-      <div class="shop">
-        <dl>
-          <dt>
-            <img src="../../../img/myself/address/collection.jpg">
-          </dt>
-          <dd>
-            <p>阿莱克手表新品双湿游泳表深度防水设计夜光运动跑步表新款户外运动2017新款2... 
-            </p>
-
-            <p>
-              <button>找相似</button>
-              <button>减低通知</button>
-            </p>
-
-            <p>
-              <span class="money">￥499.00</span>
-              <span class="shopping"></span>
-            </p>
-          </dd>
-        </dl>
-      </div>
-    </div>
-
-    <div class="div">
+  	<div class="div" @click="dj1()">
       <div class="shop">
         <dl>
           <dt>
@@ -57,7 +33,40 @@
       </div>
 
       <!-- 遮盖层 -->
-      <div class="cover"></div>
+      <div class="cover" v-if="show1">
+        <div class="delete" @click="deletes()">删除</div>
+        <div class="top" @click="top()">置顶</div>
+      </div>
+    </div>
+
+    <div class="div" @click="dj()">
+      <div class="shop">
+        <dl>
+          <dt>
+            <img src="../../../img/myself/address/collection.jpg">
+          </dt>
+          <dd>
+            <p>阿莱克手表新品双湿游泳表深度防水设计夜光运动跑步表新款户外运动2017新款2... 
+            </p>
+
+            <p>
+              <button>找相似</button>
+              <button>减低通知</button>
+            </p>
+
+            <p>
+              <span class="money">￥499.00</span>
+              <span class="shopping"></span>
+            </p>
+          </dd>
+        </dl>
+      </div>
+
+      <!-- 遮盖层 -->
+      <div class="cover" v-if="show">
+        <div class="delete" @click="deletes()">删除</div>
+        <div class="top" @click="top()">置顶</div>
+      </div>
     </div>
 
    </main>
@@ -75,13 +84,30 @@ export default {
   name: 'app',
   data () {
     return {
-
+      show:false,
+      show1:false
     }
   },
 
   methods:{
     back(){
       this.$router.go(-1)
+    },
+
+    dj(){
+      this.show = !this.show
+    },
+
+    dj1(){
+      this.show1 = !this.show1
+    },
+
+    top(){
+      alert("置顶")
+    },
+
+    deletes(){
+      alert("删除")
     }
   }
 }
@@ -153,6 +179,7 @@ export default {
     position: relative;
   }
 
+  /* 弹出框 */
   main .div .cover{
     width: 9.493333rem;
     height: 2.8rem;
@@ -160,6 +187,34 @@ export default {
     position: absolute;
     top: 0;
     left: 0;
+  }
+
+  main .div .cover .delete{
+    width: 1.2rem;
+    height: 1.2rem;
+    border-radius: 50%;
+    background: #f45971;
+    text-align: center;
+    line-height: 1.2rem;
+    font-size: 0.32rem;
+    color: #fff;
+    float: right;
+    margin-top:0.8rem; 
+    margin-right: 0.266667rem;
+  }
+
+  main .div .cover .top{
+    width: 1.2rem;
+    height: 1.2rem;
+    border-radius: 50%;
+    background: #fff;
+    text-align: center;
+    line-height: 1.2rem;
+    font-size: 0.32rem;
+    color: #333;
+    float: right;
+    margin-right: 0.533333rem;
+    margin-top:0.8rem;
   }
 
   /*商品样式*/
