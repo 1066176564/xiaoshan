@@ -1,7 +1,7 @@
 <template>
   <div id="myself-order">
       <h2>我的订单</h2>
-      <h2>全部订单</h2>
+      <h2 @click="to_order()">全部订单</h2>
       
   	 <ul>
   	 	<li>
@@ -34,6 +34,12 @@ export default {
   data () {
     return {
     	
+    }
+  },
+
+  methods:{
+    to_order(){
+      this.$router.push({path:"/order"})
     }
   }
 }
