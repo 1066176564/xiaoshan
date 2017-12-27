@@ -29,7 +29,6 @@ export default {
   },
   components:{
   	"heads":head,//头部
-  	// "banner":banner,//轮播
   	"classification":classification,//十个圆（分类）
   	"dynamic":dynamic,//公司动态
   	"Advertisement":Advertisement,//广告
