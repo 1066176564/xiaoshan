@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    	<span class="left"></span>
+  	
+  		
+  			<span class="left"></span>
     	<div class="center">
     		<span></span>
     		<span></span>
@@ -9,6 +11,9 @@
     	</div>
     	<span class="right"></span>
     	<div class="strip"></div>
+    	
+    	
+    	
   </div>
 </template>
 

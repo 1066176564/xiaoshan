@@ -1,14 +1,20 @@
 <template>
   <div id="app">
 
-    <heads></heads>
-    <classification></classification>
-	  <dynamic></dynamic>
-	  <Advertisement></Advertisement>
-	  <integral></integral>
-	  <brand></brand>
-	  <Recommend></Recommend>
-
+    		<heads></heads>
+		    <classification></classification>
+		    
+		    <router-link to="/home/gsdt">
+			  <dynamic></dynamic>
+			  </router-link>
+			  
+			  <Advertisement></Advertisement>
+			  <integral></integral>
+			  <brand></brand>
+			  <Recommend></Recommend>
+			  
+			  
+				<router-view></router-view>
    
   </div>
 </template>
@@ -37,11 +43,11 @@ export default {
   	"Advertisement":Advertisement,//广告
   	"integral":integral,//积分
   	"brand":brand,//品牌
-  	"Recommend":Recommend,//推荐
+  	"Recommend":Recommend//推荐
   }
 }
 </script>
 
-<style>
+<style scoped>
 
 </style>
