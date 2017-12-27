@@ -1,7 +1,7 @@
 <template>
   <div id="app">
 	<div id="msg_header">
-	   <span style="font-size:0.866667rem;color:black;" v-on:click="back">＜</span><span>消息中心</span><span></span>
+	   <span>消息中心</span>
 	</div>
 
 <div id="list">
@@ -148,17 +148,11 @@ export default {
 		height: 1.2rem;
 		line-height: 1.2rem;
 		border-bottom: 0.013333rem solid #f2f2f2;
-		float: left;
-		/*display: flex;
+		display: flex;
 		justify-content: center;
 		align-items: center;
 		justify-content: space-around;
-		font-size: 0.533333rem;*/
-	}
-	#msg_header span{
-		text-align: center;
-		font-size: 0.466667rem;
-		float: left;
+		font-size: 0.533333rem;
 	}
 	#msg_header span:nth-child(1){
 		margin-left: 0.133333rem;
@@ -186,6 +180,7 @@ export default {
 		margin-top: 0.373333rem;
 		background-color: white;
 		border-radius: 0.333333rem;
+		box-shadow: 0 0 0.133333rem #9a9a9a;
 	}
 	.tab1 ul li:nth-child(1){
 		margin-top: 0.266667rem;
