@@ -132,9 +132,9 @@
 			axios.get(url).then((res)=>{
 				console.log(res.data);
 				this.arr = res.data
-				for(var i in this.arr){
-					this.obj.img.push(this.arr[i].img)
-				}
+				// for(var i in this.arr){
+				// 	this.obj.img.push(this.arr[i].img)
+				// }
 				
 			})
 		},
