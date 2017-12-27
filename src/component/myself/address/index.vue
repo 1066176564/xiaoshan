@@ -195,7 +195,7 @@ export default {
 
   methods:{
     back(){
-      this.$router.go(-1)
+      this.$router.push({path:"/myself"})
     },
 
     news(){
@@ -376,6 +376,15 @@ export default {
 
 	/*新建地址*/
 
+  footer{
+    width: 100%;
+    height: 1.426667rem;
+    background: #fff;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+  }
+
 	.new{
 		width: calc(100% - 0.533333rem);
 		height: 1.173333rem;
@@ -384,9 +393,8 @@ export default {
 		font-size: 0.4rem;
 		border:none;
 		border-radius: 0.106667rem;
-		position: fixed;
-		bottom: 0.266667rem;
-		left: 0.266667rem;
+		margin-bottom: 0.266667rem;
+		margin-left: 0.266667rem;
 	}
 
 	.new span{
