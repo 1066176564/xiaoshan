@@ -42,6 +42,7 @@
     			</div>
     		</div>
     	</li>
+
     	<div id="nomore">没有更多了</div>
     </ul> 
   </div>
@@ -121,7 +122,7 @@ export default {
 
 <style scoped="scoped">
 	#app{
-		height: 14rem;
+		min-height: 14rem;
 		background-color: #f2f2f2;
 	}
     .mu-tabs{
@@ -217,7 +218,6 @@ export default {
 		line-height: 0.133333rem;
 		margin-top: 0.933333rem;
 		text-align: center;
-		margin-bottom: 0.5rem;
 	}
 
 
