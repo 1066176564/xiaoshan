@@ -34,6 +34,7 @@ import order from './component/myself/address/order.vue';
 import classifyList from './component/classify/classify-list/classify-list.vue';
 import classifyDetails from './component/classify/classify_details/classify_details.vue';
 import classifyShop from './component/classify/classify_shop/classify_shop.vue';
+import classifySerch from './component/classify/classify-home/search.vue';
 var router = new VueRouter({
 	mode: 'history',
 	routes:[
@@ -49,7 +50,8 @@ var router = new VueRouter({
 		{path:"/order",component:order},
 		{path:"/list",component:classifyList},
 		{path:"/details",component:classifyDetails},
-		{path:"/shop",component:classifyShop}
+		{path:"/shop",component:classifyShop},
+		{path:"/search",component:classifySerch}
 
 	]
 })
