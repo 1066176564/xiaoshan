@@ -36,12 +36,19 @@
         <button class="btn1">家</button>
         <button class="btn2">公司</button>
         <button class="btn3">学校</button>
+        <button class="btn4">+</button>
       </p>
+    </div>
+
+    <div class="details">
+      <p>邮箱：<input type="text" name=""></p>
+      <p>备注：<input type="text" name=""></p>
+      <textarea class="text_details" placeholder="请填写详情"></textarea>
     </div>
    </main>
 
    <footer>
-   	<button class="yes">确认</button>
+   	<button class="yes" @click="yes()">确认</button>
    </footer>
   	
   	<!-- <div style="width:100%; height:1.44rem;"></div> -->
@@ -60,6 +67,10 @@ export default {
   methods:{
     back(){
       this.$router.go(-1)
+    },
+
+    yes(){
+      this.$router.push({path:"/address"})
     }
   }
 }
@@ -211,9 +222,10 @@ export default {
   /*详细地址样式*/
   .xx_address{
     width: 100%;
-    height: 2.933333rem;
+    height: 3.133333rem;
     background: #fff;
     padding: 0 0.266667rem;
+    margin-bottom: 0.266667rem;
   }
 
   .xx_address>p{
@@ -244,8 +256,68 @@ export default {
   }
   /*标签*/
 
+  .xx_address>p:nth-child(2){
+    border:none;
+  }
+
+  .xx_address button{
+    width: 0.853333rem;
+    height: 0.426667rem;
+    border:1px solid #dedede;
+    background: none;
+    border-radius: 0.053333rem;
+    line-height: 0.426667rem;
+    font-size: 0.266667rem;
+    color: #999;
+  }
+
+  .xx_address .btn4{
+    display: block;
+    margin-left: 1.563367rem;
+  }
+
+  /* 详情 */
+  .details{
+    width: 100%;
+    height: 9.066667rem;
+    padding: 0 0.266667rem;
+    background: #fff;
+  }
+
+  .details p{
+    border-bottom: 1px solid #f2f2f2;
+    height: 1.186667rem;
+    font-size: 0.48rem;
+  }
+
+  .details p input{
+    width: 5.386667rem;
+    height: 100%;
+    border:none;
+  }
+
+  .details .text_details{
+    width: 100%;
+    height: 2.666667rem;
+    border:none;
+    background: #f2f2f2;
+    color: #999;
+    font-size: 0.293333rem;
+    padding: 0.266667rem;
+    resize: none;
+    border-radius: 0.093333rem;
+  }
 
 	/*新建地址*/
+
+  footer{
+    width: 100%;
+    height: 1.426667rem;
+    background: #fff;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+  }
 
 	.yes{
 		width: calc(100% - 0.533333rem);
@@ -256,7 +328,9 @@ export default {
 		border:none;
 		border-radius: 0.106667rem;
 		position: fixed;
-		bottom: 0.266667rem;
-		left: 0.266667rem;
+		margin-bottom: 0.266667rem;
+		margin-left: 0.266667rem;
 	}
+
+  
 </style>
