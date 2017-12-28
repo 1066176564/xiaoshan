@@ -26,6 +26,8 @@ import home from './component/home/index.vue';
 //公司动态
 import gsdt from './component/home/home-gsdt/gsdt.vue';
 import gsdt_detail from './component/home/home-gsdt/detail/gsdt_detail';
+import search from './component/home/search.vue'
+
 
 import classify from './component/classify/index.vue';
 import message from './component/message/index.vue';
@@ -83,7 +85,7 @@ var router = new VueRouter({
 		{path:"/details",component:classifyDetails},
 		{path:"/shop",component:classifyShop},
 		{path:"/collection",component:collection},
-
+		{path:"/search",component:search}
 	]
 })
 
