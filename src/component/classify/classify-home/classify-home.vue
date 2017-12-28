@@ -4,10 +4,10 @@
    			<ul>
    				<li><img src="../../../img/classify/classify_home/code.jpg"></li>
    				<li>
-   					<span>
+            <router-link to="/search" tag="span">
    						<img src="../../../img/classify/classify_home/serch.jpg">
    						<input type="text" name="" placeholder="寻找你喜欢的商品">
-   					</span>
+            </router-link>
    				</li>
    				<li></li>
    			</ul>
@@ -601,6 +601,19 @@
   								<img src="../../../img/classify/classify_home/tu.jpg">
   								<p>坚果炒货</p>
   							</li>
+                <li>
+                  <img src="../../../img/classify/classify_home/tu.jpg">
+                  <p>坚果炒货</p>
+                </li>
+                <li>
+                  <img src="../../../img/classify/classify_home/tu.jpg">
+                  <p>坚果炒货</p>
+                </li>
+                <li>
+                  <img src="../../../img/classify/classify_home/tu.jpg">
+                  <p>坚果炒货</p>
+                </li>
+                
   						</ul>
   				</div>
   				<div style="height:1.306667rem"></div>
@@ -639,7 +652,7 @@ export default {
 	width:100%;
 	height:1.226667rem;
 	display: flex;
-	justify-content: space-between ;
+	justify-content: space-around;
 	align-items: center;
 }
 .app ul li input{
@@ -708,7 +721,7 @@ export default {
 }
 .bg{
 	width:100%;
-	height:15.506667rem;
+	height:14.506667rem;
 	display: flex;
 	justify-content: center;
 }
