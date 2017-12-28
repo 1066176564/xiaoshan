@@ -23,35 +23,74 @@ Vue.use(VueLazyLoad,{
 })
 //路由组件
 import home from './component/home/index.vue';
+//公司动态
+import gsdt from './component/home/home-gsdt/gsdt.vue';
+import gsdt_detail from './component/home/home-gsdt/detail/gsdt_detail';
+
 import classify from './component/classify/index.vue';
 import message from './component/message/index.vue';
 import myself from './component/myself/index.vue';
+//周边
 import around from './component/around/index.vue';
+//地址
 import address from './component/myself/address/index.vue';
+//新建地址
 import newaddress from './component/myself/address/new_address.vue';
+//设置
 import set from './component/myself/set/set.vue';
+//我的订单
 import order from './component/myself/address/order.vue';
+//修改昵称
+import editname from './component/myself/editname/editname.vue'
+// 收藏
+import collection from './component/myself/address/collection.vue';
+
 import classifyList from './component/classify/classify-list/classify-list.vue';
 import classifyDetails from './component/classify/classify_details/classify_details.vue';
 import classifyShop from './component/classify/classify_shop/classify_shop.vue';
+<<<<<<< HEAD
 import classifySerch from './component/classify/classify-home/search.vue';
+=======
+
+>>>>>>> 00bdd074a5563051c4c18755714d4dcebcc15335
 var router = new VueRouter({
 	mode: 'history',
 	routes:[
-		{path:"/",redirect:"home"},
-		{path:"/classify",component:classify},
-		{path:"/message",component:message},
-		{path:"/home",component:home},
-		{path:"/myself",component:myself},
-		{path:"/around",component:around},
+		{path:"/",redirect:"home",meta:{navShow:true}},
+		{path:"/classify",component:classify,meta:{navShow:true}},
+		{path:"/message",component:message,meta:{navShow:true}},
+		{
+			path:"/home",
+			component:home,
+			children:[
+				{
+					path:"/home/gsdt",
+					component:gsdt,
+					children:[
+						{
+							path:"/home/gsdt/gsdt_detail",
+							component:gsdt_detail
+						}
+					]
+				}
+			]
+			,meta:{navShow:true}
+		},
+		{path:"/myself",component:myself,meta:{navShow:true}},
+		{path:"/around",component:around,meta:{navShow:true}},
 		{path:"/address",component:address},
 		{path:"/newaddress",component:newaddress},
 		{path:"/set",component:set},
+		{path:"/editname",component:editname},
 		{path:"/order",component:order},
 		{path:"/list",component:classifyList},
 		{path:"/details",component:classifyDetails},
 		{path:"/shop",component:classifyShop},
+<<<<<<< HEAD
 		{path:"/search",component:classifySerch}
+=======
+		{path:"/collection",component:collection},
+>>>>>>> 00bdd074a5563051c4c18755714d4dcebcc15335
 
 	]
 })

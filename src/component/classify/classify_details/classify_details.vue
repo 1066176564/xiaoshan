@@ -6,21 +6,11 @@
       </router-link>
    		<h2>商品详情</h2>
 			<p><img src="../../../img/classify/classify_details/classify_details_02.png"/></p>
-			<p><mu-icon-menu icon="more_vert" :anchorOrigin="leftTop" :targetOrigin="leftTop">
-		    	<router-link to='/message' class='router'>
-		      	<mu-icon  :size="26" value="chat_bubble"/>
-		      	<mu-menu-item title="消息" />
-		      </router-link>
-		      <router-link to='/home' class='router'>
-		      	<mu-icon  :size="26" value="home"/>
-		      	<mu-menu-item title="首页" />
-		      </router-link>
-		      <div class='router'>
-		      	<mu-icon  :size="26" value="screen_share"/>
-		      	<mu-menu-item title="分享" />
-		      	 </div>
-		   </mu-icon-menu></p>  
+			<p class="top_share" @click='kuans()'>
+				<img src="../../../img/classify/classify_details/classify_details_03.png" style="margin-top: 0rem;"/>
+			</p>  
   </div>
+
   <div id='swiper1'>
   	<swiper1 :data='obj' ></swiper1>
   </div>
@@ -38,8 +28,8 @@
 			<p>三星家电</p>
 		</div>
 		<div class="particulars_04">
-			<p style="float: left;">请选择型号</p>
-			<p style="float: right;">65英寸 1个 <span>></span>  </p>
+			<p>请选择型号</p>
+			<p>65英寸 1个 <span>></span>  </p>
 		</div>
 	<div style="height: 0.226666rem"></div>
 	
@@ -51,22 +41,22 @@
     <mu-tab value="tab1" title="商品详情"/>
     <mu-tab value="tab2" title="商品评价"/>
   </mu-tabs>
-  <div v-if="activeTab === 'tab1'">
+  <div v-if="activeTab === 'tab1'" class="tab">
     <p>
      <img src="../../../img/classify/classify_details/classify_details_04.png"/>
     </p>
   </div>
-  <div v-if="activeTab === 'tab2'">
+  <div v-if="activeTab === 'tab2'" class="tab">
   <mu-list>
-  	<img src="../../../img/classify/classify_details/pingjia_03.png" style="width: 15%;float: left;padding: 0.3rem 0 0 0.3rem;"/>
+  	<img src="../../../img/classify/classify_details/pingjia_03.png" class="tab_img_01"/>
     <mu-list-item title="Myron Liu">
-      <img src="../../../img/classify/classify_details/pingjia_06.png" style="width: 30%;float: right;margin-top: -30px;"/>
+      <img src="../../../img/classify/classify_details/pingjia_06.png" class="tab_img_02"/>
       <p slot="describe"> 实在编不下去，这就是个demo</p>
     </mu-list-item>
-    <img src="../../../img/classify/classify_details/pingjia_03.png" style="width: 15%;float: left;padding: 0.3rem 0 0 0.3rem;"/>
+    <img src="../../../img/classify/classify_details/pingjia_03.png" class="tab_img_01"/>
     <mu-divider inset/>
     <mu-list-item title="Myron Liu">
-      <img src="../../../img/classify/classify_details/pingjia_06.png" style="width: 30%;float: right;margin-top: -30px;"/>
+      <img src="../../../img/classify/classify_details/pingjia_06.png" class="tab_img_02"/>
       <p slot="describe"> 实在编不下去，这就是个demo</p>
     </mu-list-item>
     <mu-divider inset/>
@@ -173,6 +163,38 @@
   </div>
 </div>
   </div>
+    <div class="alertKuan" v-if='kuan'>
+  	<div @click='close()'>
+  		<router-link to='/message' tag='div'>
+  		 <mu-icon value="chat_bubble"/><p>消息</p>
+  		</router-link>
+  		</div>
+  		<div @click='close()'>
+  			<router-link to='/home' tag='div'>
+  			<mu-icon value="home"/><p>首页</p>
+  			</router-link>
+  		</div>
+  		<div @click='share()'>
+  			<mu-icon value="screen_share"/><p>分享</p>
+  		</div>
+  </div>
+  <div class="background" v-if='showc'>
+  	<div class="background_div">
+  		<div class="background_li">
+  			<h1>分享到</h1>
+  			<ul>
+  				<li @click='urteilen1()'><img src="../../../img/classify/classify_details/fenXiang_03.png"/><p>微信好友</p></li>
+  				<li @click='urteilen1()'><img src="../../../img/classify/classify_details/fenXiang_05.png"/><p>微信朋友圈</p></li>
+  				<li @click='urteilen1()'><img src="../../../img/classify/classify_details/fenXiang_07.png"/><p>QQ好友</p></li>
+  				<li @click='urteilen1()'><img src="../../../img/classify/classify_details/fenXiang_09.png"/><p>QQ空间</p></li>
+  			</ul>
+  		</div>
+  		<div class="background_quxiao" @click='close()'>
+  			取消分享
+  		</div>
+  		
+  	</div>
+  </div>
   </div>
 </template>
 
@@ -188,14 +210,16 @@ export default {
     	showa:true,
        showb:false,
     	show:false,
+    	showc:false,
     	showx:false,
     	shows:false,
     	showw:true,
     	hid:true,
-    	leftTop: {horizontal: 'left', vertical: 'top'},
+    	kuan:false,
 			obj:{
 				img:[],
-				pagination:true
+				pagination:true,
+				loop:2000
 			}
     }
   },
@@ -218,6 +242,13 @@ export default {
     window.addEventListener('scroll', this.fnn);
   },
   methods:{
+  	share(){
+  		this.kuan=false;
+  		 this.showc=true;
+  	},
+  	kuans(){
+  		this.kuan=true;
+  	},
     handleTabChange (val) {
       this.activeTab = val
     },
@@ -231,9 +262,11 @@ export default {
     // 点击关闭
     close(){
       this.show=false;
+      this.showc=false;
       this.shows=false;
       this.showx=false;
        this.hid=true;
+       this.kuan=false;
     },
     urteilen1(){
       if(this.username==null){
@@ -292,6 +325,80 @@ export default {
 </script>
 
 <style scoped="scoped">
+	.tab_img_02{
+		width: 30%;
+		float: right;
+		margin-top: -30px;
+	}
+	.tab_img_01{
+		width: 15%;
+		float: left;
+		padding: 0.3rem 0 0 0.3rem;
+	}
+	.top_share{
+		
+		margin-right: 0.7rem;
+		margin-left: 0.7rem;
+	}
+	.background_li h1{
+		text-align: center;
+		color: #656a6e;
+	}
+	.background_li ul{
+		width: 100%;
+		display: flex;
+		padding:0 0.5rem;
+		text-align: center;
+	}
+	.background_li li{
+		flex: 1;
+	}
+	.background_li img{
+		width: 1.733333rem;
+		height: 1.733333rem;
+	}
+	.background_div{
+		width: 100%;
+		height: 7rem;
+		background: #eaeff3;
+		bottom: 0;
+		position: fixed;
+	}
+	.background_quxiao{
+		width: 100%;
+		height: 1.866666rem;
+		background: #fff;
+		position: fixed;
+		bottom: 0;
+		text-align: center;
+		line-height: 1.866666rem;
+		font-size: 0.4rem;
+		color: #585a59;
+	}
+	.alertKuan{
+		border:0.026666rem solid #ddd ;
+		width: 2.9rem;
+		height: 3.3rem;
+    	background: #fff;
+    	border:0.026666rem solid #ddd ;
+    	position: fixed;
+    	z-index: 9999;
+    	top: 0;margin-left: 7.12rem;
+    	font-size: 0.4rem;
+	}
+	a{
+		color: #3A3A3A;
+	}
+	.alertKuan div{
+		display: flex;
+	}
+	.alertKuan div p{
+		margin-top:0.4rem;
+		margin-left: 0.4rem;
+	}
+		.tab{
+		background: #fff;
+	}
 	#showb{
   position: fixed;
   z-index: 9999;
@@ -313,7 +420,7 @@ export default {
 	}
 	.head p img{
 		height: 0.693333rem;
-		margin-top: 0.75rem;
+		margin-top: 0.6rem;
 	}
 	.head p:nth-of-type(1){
 		padding: 0 0.8rem;
