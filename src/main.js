@@ -26,7 +26,7 @@ import home from './component/home/index.vue';
 //公司动态
 import gsdt from './component/home/home-gsdt/gsdt.vue';
 import gsdt_detail from './component/home/home-gsdt/detail/gsdt_detail';
-import search from './component/home/search.vue'
+import searchx from './component/home/search.vue'
 
 
 import classify from './component/classify/index.vue';
@@ -84,17 +84,10 @@ var router = new VueRouter({
 		{path:"/list",component:classifyList},
 		{path:"/details",component:classifyDetails},
 		{path:"/shop",component:classifyShop},
-<<<<<<< HEAD
 		{path:"/collection",component:collection},
-		{path:"/search",component:search}
-=======
-
+		{path:"/searchx",component:searchx},
 		{path:"/search",component:classifySerch},
-
 		{path:"/collection",component:collection}
-
-
->>>>>>> a08edf5eaa5000a114b7c9535549e488f20ae165
 	]
 })
 

@@ -2,7 +2,7 @@
   <div id="app">
 
     <div class="headone">
-    <router-link to="/search">
+    <router-link to="/searchx">
       <span class="left"></span>
     </router-link> 
       <p>小善</p>
