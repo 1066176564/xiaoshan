@@ -48,11 +48,7 @@ import collection from './component/myself/address/collection.vue';
 import classifyList from './component/classify/classify-list/classify-list.vue';
 import classifyDetails from './component/classify/classify_details/classify_details.vue';
 import classifyShop from './component/classify/classify_shop/classify_shop.vue';
-<<<<<<< HEAD
 import classifySerch from './component/classify/classify-home/search.vue';
-=======
-
->>>>>>> 00bdd074a5563051c4c18755714d4dcebcc15335
 var router = new VueRouter({
 	mode: 'history',
 	routes:[
@@ -86,11 +82,11 @@ var router = new VueRouter({
 		{path:"/list",component:classifyList},
 		{path:"/details",component:classifyDetails},
 		{path:"/shop",component:classifyShop},
-<<<<<<< HEAD
-		{path:"/search",component:classifySerch}
-=======
-		{path:"/collection",component:collection},
->>>>>>> 00bdd074a5563051c4c18755714d4dcebcc15335
+
+		{path:"/search",component:classifySerch},
+
+		{path:"/collection",component:collection}
+
 
 	]
 })
