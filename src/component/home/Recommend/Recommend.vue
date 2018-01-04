@@ -8,26 +8,34 @@
 	    </div>
 		
 		<ul>
-			<li>
-				<img src="../../../img/home/h_home_34.jpg"/>
-				<p class="p_one">漫步者蓝牙系列明星爆品 音质出色 持久续航 精致工艺</p>
-				<p class="p_two">￥299 <small>1345人付款</small></p>
-			</li>
-			<li>
-				<img src="../../../img/home/h_home_36.jpg"/>
-				<p class="p_one">漫步者蓝牙系列明星爆品 音质出色 持久续航 精致工艺</p>
-				<p class="p_two">￥299 <small>1345人付款</small></p>
-			</li>
-			<li>
-				<img src="../../../img/home/h_home_34.jpg"/>
-				<p class="p_one">漫步者蓝牙系列明星爆品 音质出色 持久续航 精致工艺</p>
-				<p class="p_two">￥299 <small>1345人付款</small></p>
-			</li>
+			<router-link to="details">
+				<li>
+					<img src="../../../img/home/h_home_34.jpg"/>
+					<p class="p_one">漫步者蓝牙系列明星爆品 音质出色 持久续航 精致工艺</p>
+					<p class="p_two">￥299 <small>1345人付款</small></p>
+				</li>
+			</router-link>
+			<router-link to="details">
 			<li>
 				<img src="../../../img/home/h_home_36.jpg"/>
 				<p class="p_one">漫步者蓝牙系列明星爆品 音质出色 持久续航 精致工艺</p>
 				<p class="p_two">￥299 <small>1345人付款</small></p>
 			</li>
+			</router-link>
+			<router-link to="details">
+			<li>
+				<img src="../../../img/home/h_home_34.jpg"/>
+				<p class="p_one">漫步者蓝牙系列明星爆品 音质出色 持久续航 精致工艺</p>
+				<p class="p_two">￥299 <small>1345人付款</small></p>
+			</li>
+			</router-link>
+			<router-link to="details">
+			<li>
+				<img src="../../../img/home/h_home_36.jpg"/>
+				<p class="p_one">漫步者蓝牙系列明星爆品 音质出色 持久续航 精致工艺</p>
+				<p class="p_two">￥299 <small>1345人付款</small></p>
+			</li>
+			</router-link>
 		</ul>
 
 		<p style="margin-bottom:4.0rem;float:left"></p>

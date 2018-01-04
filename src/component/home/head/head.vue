@@ -67,7 +67,6 @@
   margin-top: 1.133333rem;
 }
 
-
 </style>
 
 <script>
@@ -81,7 +80,9 @@ export default {
            "http://img0.imgtn.bdimg.com/it/u=1085727832,933361700&fm=27&gp=0.jpg",
            "http://img0.imgtn.bdimg.com/it/u=1085727832,933361700&fm=27&gp=0.jpg",
            "http://img0.imgtn.bdimg.com/it/u=1085727832,933361700&fm=27&gp=0.jpg"
-        ]
+        ],
+        pagination:true,
+        button:true,
       }
     }
   },

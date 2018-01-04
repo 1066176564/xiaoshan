@@ -6,11 +6,13 @@
     		<span class="max_text">更多</span>
     	</div>
       <ul>
-        <li>
-          <span class="shop_img1"><img src="../../../img/home/h_home_03.jpg" /></span>
-          <p class="textOne">DANNA 爽肤水</p>
-          <p class="textTwo">3000积分</p>
-        </li>
+        <router-link to="details">
+          <li>
+            <span class="shop_img1"><img src="../../../img/home/h_home_03.jpg" /></span>
+            <p class="textOne">DANNA 爽肤水</p>
+            <p class="textTwo">3000积分</p>
+          </li>
+        </router-link>
          <li>
           <span class="shop_img2"><img src="../../../img/home/h_home_05.jpg" /></span>
           <span class="textOne">DANNA 爽肤水</span>
@@ -56,18 +58,17 @@
   font-family: "微软雅黑";
 }
 ol li{
-  width: 24.9%;
+  width: 25%;
   height: 2.84rem;
   float: left;
   text-align: center;
   border-right: 0.026667rem solid #f2f2f2;
 }
-ol li:nth-child(2){
+/*ol li:nth-child(2){
   width: 25.5%
-}
+}*/
 ol li:last-child{
   border: none;
-  width: 24.7%;
 }
 ol li img{
   width: 1.2rem;
@@ -96,12 +97,13 @@ ol{
 }
 .shop_img1{
   width: 2.106667rem;
-  height: 2.573333rem;
+  height: 2.5rem;
   float: left;
+  overflow: hidden;
 }
 .shop_img2{
   width: 2.32rem;
-  height: 2.573333rem;
+  height: 2.5rem;
   float: left;
 }
 ul li{
@@ -110,11 +112,11 @@ ul li{
   float: left;
 }
 ul li:first-child{
-  width: 50.5%;
+  width: 50%;
   border-right: 0.026667rem solid #f2f2f2;
 }
 ul li:last-child{
-  width: 49%;
+  width: 50%;
 }
 ul{
   width: 94.6%;
