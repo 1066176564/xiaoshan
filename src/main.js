@@ -8,6 +8,9 @@ Vue.use(MuseUI)
 import MintUI from 'mint-ui'
 import 'mint-ui/lib/style.css'
 Vue.use(MintUI)
+
+
+
 //引用swiper
 require('swiper/dist/css/swiper.css')
 var VueAwesomeSwiper = require('vue-awesome-swiper')
@@ -26,6 +29,8 @@ import home from './component/home/index.vue';
 //公司动态
 import gsdt from './component/home/home-gsdt/gsdt.vue';
 import gsdt_detail from './component/home/home-gsdt/detail/gsdt_detail';
+import searchx from './component/home/search.vue'
+
 
 import classify from './component/classify/index.vue';
 import message from './component/message/index.vue';
@@ -82,14 +87,21 @@ var router = new VueRouter({
 		{path:"/list",component:classifyList},
 		{path:"/details",component:classifyDetails},
 		{path:"/shop",component:classifyShop},
-
+		{path:"/collection",component:collection},
+		{path:"/searchx",component:searchx},
 		{path:"/search",component:classifySerch},
-
 		{path:"/collection",component:collection}
-
-
 	]
 })
+//
+import axios from "axios";
+Vue.prototype.$http=axios;
+
+import md5 from 'js-md5';
+import {Base64} from 'js-base64';
+ 
+ Vue.prototype.md5 = md5;
+ Vue.prototype.Base64 = Base64;
 
 new Vue({
   el: '#app',

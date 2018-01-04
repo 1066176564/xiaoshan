@@ -2,7 +2,9 @@
   <div id="app">
 
     <div class="headone">
+    <router-link to="/searchx">
       <span class="left"></span>
+    </router-link> 
       <p>小善</p>
       <span class="right"></span>
     </div>
@@ -10,7 +12,7 @@
   	<div class="headtwo">
       <banners class="banner" :data="obj"></banners> 
   	</div>
-
+    
   </div>
 </template>
 
@@ -66,11 +68,15 @@
   height: 3.8rem;
   margin-top: 1.133333rem;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> af858e32439fbf7cd9f64d185eeca07c8f69386c
 </style>
 
 <script>
 import banner from '../../../common/swiper/swiper.vue'
+import search from '../search.vue'
 export default {
   name: 'app',
   data () {
@@ -80,14 +86,21 @@ export default {
            "http://img0.imgtn.bdimg.com/it/u=1085727832,933361700&fm=27&gp=0.jpg",
            "http://img0.imgtn.bdimg.com/it/u=1085727832,933361700&fm=27&gp=0.jpg",
            "http://img0.imgtn.bdimg.com/it/u=1085727832,933361700&fm=27&gp=0.jpg"
+<<<<<<< HEAD
         ],
         pagination:true,
         button:true,
       }
+=======
+        ]
+      },
+      hide:false
+>>>>>>> af858e32439fbf7cd9f64d185eeca07c8f69386c
     }
   },
   components:{
     "banners":banner,
+    search
   }
 }
 </script>
