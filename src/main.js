@@ -8,6 +8,9 @@ Vue.use(MuseUI)
 import MintUI from 'mint-ui'
 import 'mint-ui/lib/style.css'
 Vue.use(MintUI)
+
+
+
 //引用swiper
 require('swiper/dist/css/swiper.css')
 var VueAwesomeSwiper = require('vue-awesome-swiper')
@@ -90,6 +93,15 @@ var router = new VueRouter({
 		{path:"/collection",component:collection}
 	]
 })
+//
+import axios from "axios";
+Vue.prototype.$http=axios;
+
+import md5 from 'js-md5';
+import {Base64} from 'js-base64';
+ 
+ Vue.prototype.md5 = md5;
+ Vue.prototype.Base64 = Base64;
 
 new Vue({
   el: '#app',
