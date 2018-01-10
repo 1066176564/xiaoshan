@@ -2,9 +2,9 @@
  import md5 from 'js-md5';
  import {Base64} from 'js-base64';
  //实际服务器
- export const BaseUrl='http://api.bleale.com/api.php/api/v1.';
+   export const BaseUrl='http://api.bleale.com/api.php/api/v1.';
  //测试服务器
- //export const BaseUrl='http://localhost/xsyg/public/api.php/api/v1.';
+// export const BaseUrl='http://169.254.133.159/xsyg/public/api.php/api/v1.';
 //公共参数
  export function creatParams(data,token){
    	let request_time=new Date().getTime();

@@ -17,16 +17,20 @@
    		<p>账户</p>
    	</li>
    	<li>
-   		<div class="three">
+   		<router-link to="/certification">
+   			<div class="three">
    			
-   		</div>
-   		<p>实名认证</p>
+	   		</div>
+	   		<p>实名认证</p>
+   		</router-link>
    	</li>
    	<li >
-   		<div class="four">
-   			
-   		</div>
-   		<p>购物券</p>
+   		<router-link to="/integral">
+   			<div class="four">
+	   			
+	   		</div>
+	   		<p>我的积分</p>
+   		</router-link>
    	</li>
    	<li>
    		<div class="five">
@@ -43,11 +47,13 @@
    		</router-link>
    	</li>
    	<li>
-   		
+   		<router-link to="/words">
    			<div class="seven">
 	   			
 	   		</div>
-	   		<p>问题咨询</p>
+	   		<p>我的留言</p>
+   		</router-link>
+   			
    			
    	</li>
    	<li>

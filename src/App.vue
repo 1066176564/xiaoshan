@@ -1,8 +1,8 @@
 <template>
 	<div id="app">
-		<keep-alive>
+		<!--<keep-alive>-->
 		<router-view></router-view>
-		</keep-alive>
+		<!--</keep-alive>-->
 		<!--rem设置75px-->
 		<div class="footer" v-show="$route.meta.navShow">
 			<ul class="footernav">

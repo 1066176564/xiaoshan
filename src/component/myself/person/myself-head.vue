@@ -1,5 +1,6 @@
 <template>
   <div id="myself-head">
+  	
   	<router-link to="/set">
   		<div class="head">
 	   		<p>{{detail.username}}</p>

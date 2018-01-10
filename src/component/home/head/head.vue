@@ -68,10 +68,7 @@
   height: 3.8rem;
   margin-top: 1.133333rem;
 }
-<<<<<<< HEAD
 
-=======
->>>>>>> af858e32439fbf7cd9f64d185eeca07c8f69386c
 </style>
 
 <script>
@@ -86,17 +83,13 @@ export default {
            "http://img0.imgtn.bdimg.com/it/u=1085727832,933361700&fm=27&gp=0.jpg",
            "http://img0.imgtn.bdimg.com/it/u=1085727832,933361700&fm=27&gp=0.jpg",
            "http://img0.imgtn.bdimg.com/it/u=1085727832,933361700&fm=27&gp=0.jpg"
-<<<<<<< HEAD
+
         ],
         pagination:true,
         button:true,
-      }
-=======
-        ]
       },
       hide:false
->>>>>>> af858e32439fbf7cd9f64d185eeca07c8f69386c
-    }
+ 			}
   },
   components:{
     "banners":banner,

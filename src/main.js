@@ -49,11 +49,18 @@ import order from './component/myself/address/order.vue';
 import editname from './component/myself/editname/editname.vue'
 // 收藏
 import collection from './component/myself/address/collection.vue';
-
+//我的积分
+import integral from './component/myself/Integral/integral.vue';
+//我的留言
+import words from './component/myself/words/words.vue';
+//实名认证
+import certification from './component/myself/certification/certification.vue';
 import classifyList from './component/classify/classify-list/classify-list.vue';
 import classifyDetails from './component/classify/classify_details/classify_details.vue';
 import classifyShop from './component/classify/classify_shop/classify_shop.vue';
 import classifySerch from './component/classify/classify-home/search.vue';
+//登录
+import login from './component/login/index.vue';
 var router = new VueRouter({
 	mode: 'history',
 	routes:[
@@ -90,7 +97,12 @@ var router = new VueRouter({
 		{path:"/collection",component:collection},
 		{path:"/searchx",component:searchx},
 		{path:"/search",component:classifySerch},
-		{path:"/collection",component:collection}
+		{path:"/collection",component:collection},
+		{path:"/login",component:login},
+		{path:"/integral",component:integral},
+		{path:"/words",component:words},
+		{path:"/certification",component:certification}
+		
 	]
 })
 //

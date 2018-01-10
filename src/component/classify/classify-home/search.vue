@@ -8,10 +8,10 @@
    				<li>
    					<span>
    						<img src="../../../img/classify/classify_home/serch.jpg">
-   						<input type="text" name="" placeholder="寻找你喜欢的商品">
+   						<input type="text" name="" placeholder="寻找你喜欢的商品" v-model="values">
    					</span>
    				</li>
-   				<li>搜索</li>
+   				<li @click="serch()">搜索</li>
    			</ul>
   	</div>
     <div style="height:1.306667rem"></div>
@@ -21,27 +21,21 @@
           </div>
           <div class="top2">
               <ul>
-                  <li>平生充电宝</li>
-                  <li>跑步耳机</li>
-                  <li>魅族</li>
-                  <li>么么哒项链</li>
-                  <li>华为荣耀8</li>
-                  <li>海洋之心</li>
-                  <li>海鸥</li>
-                  <li>瓜子</li>
-                  <li>茶</li>
-                  <li>安踏</li>
+                  <li v-for="item in newarr">{{item.search_terms}}</li>
               </ul>
           </div>
       </div>
       <div class="mian2">
           <ul>
             <li>历史搜索</li>
-            <li><img src="../../../img/classify/classify_home/laji.png"></li>
+            <li @click="clear()"><img src="../../../img/classify/classify_home/laji.png"></li>
           </ul>
       </div>
-      <div class="mian2List">
-          <p>电脑</p>
+      <div class="mian2List" v-for="(item,index) in queryHistoryList">
+          <ul>
+              <li>{{item}}</li>
+              <li @click="delects(index)">删除</li>
+          </ul>
       </div>
       <div class="down"></div>
   		<div style="height:1.306667rem"></div>	
@@ -49,18 +43,73 @@
 </template>
 
 <script>
+import {creatParams,BaseUrl} from '../../../api/BaseUrl.js';
 export default {
   name: 'app',
   data () {
     return {
-    	arr:["推荐分类","家电厨具","手机数码","美妆个护","食品饮料","房车家装","服装鞋盒","生活服务","电脑办公","珠宝箱包","母婴玩具","礼品珍藏","国际品牌"],
-    	change:0
+      newarr:"",
+      values:"",
+      str: '',
+      queryHistoryList: []
     }
   },
+  created(){
+    //第二个参数是token  
+      var data=creatParams('{"act":"hotlist"}',"");
+    //请求数据
+        this.$http.get(BaseUrl+"plat_search"+data).then(res=>{
+        let arr=JSON.parse(Base64.decode(res.data.data));
+        this.newarr=arr.list;
+      })
+      if (localStorage.getItem("key")){
+        this.str = localStorage.getItem("key");
+      }
+  },
   methods:{
-  	active(id){
-  		this.change=id
-  	}
+    //搜索
+      serch(){
+        //判断为空不做任何操作
+        if(this.values==''){
+          return;
+        }else{
+            if (!localStorage.getItem("key")) {// 本地无key字段
+            let arr = [this.values];
+            localStorage.setItem("key",JSON.stringify(arr));
+          } else {
+            let str = localStorage.getItem("key");
+            let arr1 = JSON.parse(str);
+            //历史记录去重
+            if(arr1.indexOf(this.values)==-1){
+              arr1.unshift(this.values);
+            }
+            localStorage.setItem("key",JSON.stringify(arr1))
+          }
+          this.values = '';
+          this.str = localStorage.getItem("key");
+        }
+      },
+      //全部删除
+      clear(){
+        localStorage.clear("key");
+        if(localStorage.getItem("key")==null){
+          this.str = localStorage.getItem("key");
+        }
+      },
+      //单个删除
+      delects(index){
+        let data=localStorage.getItem("key");
+        let res=JSON.parse(data);
+        res.splice(index,1);
+        localStorage.setItem("key",JSON.stringify(res));
+        this.str = localStorage.getItem("key");
+      }
+  },
+  //实时更新
+  watch: {
+    str(value) {
+      this.queryHistoryList = JSON.parse(value);
+    }
   }
 }
 </script>
@@ -69,7 +118,7 @@ export default {
 .app{
 	width:100%;
 	height:1.226667rem;
-	border-bottom: 0.013333rem solid #ccccccq;
+	border-bottom: 0.013333rem solid #cccccc;
 	position:fixed;
 	top:0;
 	background: #ffffff;
@@ -133,7 +182,6 @@ export default {
 .top2{
   width:98%;
   height:3.0rem;
-  /*background: blue;*/
   margin:0.0rem 0.133333rem;
 }
 .top2 ul{
@@ -141,12 +189,13 @@ export default {
   height:2.0rem;
   display:flex;
   flex-wrap:wrap;
-  justify-content:space-between;
+  justify-content:left;
 }
 .top2 ul li{
+  height: 1.066667rem;
   border:0.013333rem solid #cccccc;
   padding:0.24rem;
-  margin-top: 0.3rem;
+  margin:0.133333rem;
 }
 .mian2{
   width:100%;
@@ -171,9 +220,16 @@ export default {
 }
 .mian2List{
   width:100%;
-  height:0.933333rem;
   border-bottom: 0.013333rem solid #cccccc;
   line-height:0.933333rem;
   padding-left:0.4rem; 
+}
+.mian2List ul{
+  width:100%;
+  display: flex;
+  justify-content: space-between;
+}
+.mian2List ul li:nth-child(2){
+  margin-right: 0.266667rem;
 }
 </style>
