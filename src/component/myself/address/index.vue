@@ -3,184 +3,58 @@
    <header>
    	<div class="back" @click="back()"></div>
    	<span class="title">地址选择</span>
-   	<div class="information"></div>
    </header>
 
    <div style="width:100%; height:1.253333rem;"></div>
 
    <main>
-  	<div class="div">
-  		<div class="top">
-  			<p class="p1">
-  				<span class="name">刘德华</span>
-  				<span class="phone">159****1809</span>
-  				<button class="address">学校</button>
-  			</p>
 
-  			<p class="p2">地址：历山大道888号</p>
-  		</div>
-  		<div class="bottom">
-  			<div class="left">
-  				<input type="radio" name="" class="radio">
-  				<span class="mr_address">默认地址</span>
-  			</div>
-  			<div class="right">
-  				<div class="bj_img"></div>
-  				<span class="bj_text">编辑</span>
-  				<div class="sc_img"></div>
-  				<span class="sc_text">删除</span>
-  			</div>
-  		</div>
-  	</div> 
 
-  	<div class="div">
-  		<div class="top">
-  			<p class="p1">
-  				<span class="name">刘德华</span>
-  				<span class="phone">159****1809</span>
-  				<button class="address">学校</button>
-  			</p>
 
-  			<p class="p2">地址：历山大道888号</p>
-  		</div>
-  		<div class="bottom">
-  			<div class="left">
-  				<input type="radio" name="" class="radio">
-  				<span class="mr_address">默认地址</span>
-  			</div>
-  			<div class="right">
-  				<div class="bj_img"></div>
-  				<span class="bj_text">编辑</span>
-  				<div class="sc_img"></div>
-  				<span class="sc_text">删除</span>
-  			</div>
-  		</div>
-  	</div>
+    	<div class="div" v-for="(data,index) in arr">
+        <div class="top">
+          <p class="p1">
+            <span class="name">{{data.name}}</span>
+            <span class="phone">{{data.tel}}</span>
+            <button class="address">{{data.lable}}</button>
+          </p>
+          <p class="p2">{{data.address}}</p>
+        </div>
 
-  	<div class="div">
-  		<div class="top">
-  			<p class="p1">
-  				<span class="name">刘德华</span>
-  				<span class="phone">159****1809</span>
-  				<button class="address">学校</button>
-  			</p>
+        <div class="bottom">
+           
+          <div class="left">
+            <input type="radio" name="haha" class="radio">
+            <span class="mr_address">默认地址</span>
+          </div>
+          <div class="right">
+            <div class="bj_img"></div>
+            <span class="bj_text">编辑</span>
+            <div class="sc_img"></div>
+            <!-- <span class="sc_text">删除</span> -->
+            <div class="sc_text">
 
-  			<p class="p2">地址：历山大道888号</p>
-  		</div>
-  		<div class="bottom">
-  			<div class="left">
-  				<input type="radio" name="" class="radio">
-  				<span class="mr_address">默认地址</span>
-  			</div>
-  			<div class="right">
-  				<div class="bj_img"></div>
-  				<span class="bj_text">编辑</span>
-  				<div class="sc_img"></div>
-  				<span class="sc_text">删除</span>
-  			</div>
-  		</div>
-  	</div>	
-  	<div class="div">
-  		<div class="top">
-  			<p class="p1">
-  				<span class="name">刘德华</span>
-  				<span class="phone">159****1809</span>
-  				<button class="address">学校</button>
-  			</p>
+              <!-- <mu-raised-button label="删除" @click="open"/> -->
+              <span class="sc_text" @click="open(index)">删除</span>
+              <mu-dialog :open="dialog" title="Dialog" @close="close">
+                你确定删除吗？
+                <mu-flat-button slot="actions" @click="close" primary label="取消"/>
+                <mu-flat-button slot="actions" primary @click="del(),close()" label="确定"/>
+              </mu-dialog>
+            </div>
+          </div>
+        </div>
+      </div> 
 
-  			<p class="p2">地址：历山大道888号</p>
-  		</div>
-  		<div class="bottom">
-  			<div class="left">
-  				<input type="radio" name="" class="radio">
-  				<span class="mr_address">默认地址</span>
-  			</div>
-  			<div class="right">
-  				<div class="bj_img"></div>
-  				<span class="bj_text">编辑</span>
-  				<div class="sc_img"></div>
-  				<span class="sc_text">删除</span>
-  			</div>
-  		</div>
-  	</div>
 
-  	<div class="div">
-  		<div class="top">
-  			<p class="p1">
-  				<span class="name">刘德华</span>
-  				<span class="phone">159****1809</span>
-  				<button class="address">学校</button>
-  			</p>
 
-  			<p class="p2">地址：历山大道888号</p>
-  		</div>
-  		<div class="bottom">
-  			<div class="left">
-  				<input type="radio" name="" class="radio">
-  				<span class="mr_address">默认地址</span>
-  			</div>
-  			<div class="right">
-  				<div class="bj_img"></div>
-  				<span class="bj_text">编辑</span>
-  				<div class="sc_img"></div>
-  				<span class="sc_text">删除</span>
-  			</div>
-  		</div>
-  	</div>	
-  	<div class="div">
-  		<div class="top">
-  			<p class="p1">
-  				<span class="name">刘德华</span>
-  				<span class="phone">159****1809</span>
-  				<button class="address">学校</button>
-  			</p>
 
-  			<p class="p2">地址：历山大道888号</p>
-  		</div>
-  		<div class="bottom">
-  			<div class="left">
-  				<input type="radio" name="" class="radio">
-  				<span class="mr_address">默认地址</span>
-  			</div>
-  			<div class="right">
-  				<div class="bj_img"></div>
-  				<span class="bj_text">编辑</span>
-  				<div class="sc_img"></div>
-  				<span class="sc_text">删除</span>
-  			</div>
-  		</div>
-  	</div>
-
-  	<div class="div">
-  		<div class="top">
-  			<p class="p1">
-  				<span class="name">刘德华</span>
-  				<span class="phone">159****1809</span>
-  				<button class="address">学校</button>
-  			</p>
-
-  			<p class="p2">地址：历山大道888号</p>
-  		</div>
-  		<div class="bottom">
-  			<div class="left">
-  				<input type="radio" name="" class="radio">
-  				<span class="mr_address">默认地址</span>
-  			</div>
-  			<div class="right">
-  				<div class="bj_img"></div>
-  				<span class="bj_text">编辑</span>
-  				<div class="sc_img"></div>
-  				<span class="sc_text">删除</span>
-  			</div>
-  		</div>
-  	</div>	
    </main>
 
    <footer>
-   	<button class="new" @click="news()"><span>+</span>新建地址</button>
+   	  <button class="new" @click="news()"><span>+</span>新建地址</button>
    </footer>
   	
-  	<div style="width:100%; height:1.44rem; "></div>
   </div>
 </template>
 
@@ -189,18 +63,49 @@ export default {
   name: 'app',
   data () {
     return {
-
+        arr:[],
+        dialog: false,
+        index:""
     }
   },
+  created(){
 
+    this.xr();
+  },
   methods:{
+    xr(){
+    
+      var url = "../src/component/myself/address/address.json";
+      this.$http.get(url).then((res)=>{
+        this.arr=res.data
+        var items = sessionStorage.getItem("item");
+        if(items == null){
+        	
+        }else{
+        	items=JSON.parse(items)
+		    console.log(this.arr)
+	        this.arr.push(items)
+        }
+      })
+
+   
+    },
+    del(){
+      this.arr.splice(this.index,1)
+    },
+    open (index) {
+      this.dialog = true
+      this.index=index;
+    },
+    close () {
+      this.dialog = false
+    },
     back(){
       this.$router.push({path:"/myself"})
     },
-
     news(){
     	this.$router.push({path:"/newaddress"})
-    }
+    },
   }
 }
 </script>
@@ -271,7 +176,7 @@ export default {
 		padding-right: 0.266667rem;
 		margin-bottom: 0.266667rem;
 	}
-
+  
 	main .div>.top{
 		width: 100%;
 		height: 1.733333rem;
@@ -305,16 +210,13 @@ export default {
 
 	main .div>.top p .address{
 		margin:0;
-		padding: 0; 
+		padding: 0.013333rem 0.066667rem; 
 		font-size: 0.24rem;
 		margin-left: 0.266667rem;
-		width: 0.8rem;
-		height: 0.4rem;
 		border:1px solid #f45971;
 		border-radius: 0.04rem;
 		background: none;
 		float: left;
-		line-height: 0.4rem;
 		color: #f45971;
 		margin-bottom: 0.266667rem;
 	}

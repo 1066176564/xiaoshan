@@ -1,8 +1,5 @@
 <template>
-  <div id="all">
- 
-
-   <main>
+  <div id="order1">
   	<div class="div">
       <!-- 店铺 -->
       <div class="information">
@@ -42,19 +39,13 @@
       </div>
 
     </div>
-   </main>
 
-   <footer>
-   	
-   </footer>
-  	
-  	<!-- <div style="width:100%; height:1.44rem;"></div> -->
   </div>
 </template>
 
 <script>
 export default {
-  name: 'all',
+  name: 'order1',
   data () {
     return {
 

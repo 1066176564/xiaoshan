@@ -53,6 +53,7 @@
 </template>
 
 <script>
+	import {creatParams,BaseUrl} from '../../../../api/BaseUrl.js'
 export default {
   name: 'all',
   data () {
@@ -63,6 +64,15 @@ export default {
 
   methods:{
 
+  },
+  created(){
+  	var token=localStorage.getItem("token")
+  	console.log(token)
+  	var data=creatParams('{"act":"order_list"}',token);
+  	this.$http.get(BaseUrl+"plat_order"+data).then(res=>{
+//		console.log(JSON.parse(Base64.decode(res.data.data)));
+  		console.log(res)
+  	})
   }
 }
 </script>

@@ -1,318 +1,357 @@
 <template>
 
-   <!-- <swiper1 id="swiper1" :data="obj"></swiper1> -->
-  
+	<!-- <swiper1 id="swiper1" :data="obj"></swiper1> -->
 
 	<div id="app">
-	<div class="header" id="header">
-			  	<div id="cityBox">
-			  	 <select id="city">
-			  		<option>北京</option>
-			  		<option>上海</option>
-			  		<option>河北</option>
-			  		<option>天津</option>
-			  		<option>魔都</option>
-			  		<option>帝都</option>
-			  	 </select>
-			  </div>
-      <span>搜索</span>
-      <div id="serach">
-      <input type="text" placeholder="搜索关键字、商品、商家"/>
-      </div>
+		<div class="header" id="header">
+			<keep-alive>
+				<slot>
+					<select id="city" v-model="selected" @change="doAjax(selected)">
+						<!--渲染城市列表-->
+						<option v-for="item in citys">
+							{{item.name}}
+						</option>
+					</select>
+				</slot>
+			</keep-alive>
+			<span>搜索</span>
+			<div id="serach">
+				<input type="text" placeholder="搜索关键字、商品、商家" />
+			</div>
 		</div>
 		<div id="box"></div>
-		
+
+		<!--轮播-->
 		<div class="banner">
-     <swiper1 :data="obj" class="swiper1"></swiper1>
+			<swiper1 :data="obj" class="swiper1"></swiper1>
 		</div>
+
+		<!--主体-->
 		<div class="main">
-			<mu-tabs :value="activeTab" @change="handleTabChange">
-				<mu-tab value="tab1" title="推荐" />
-				<mu-tab value="tab2" title="餐饮" />
-				<mu-tab value="tab3" title="酒店" />
-				<mu-tab value="tab4" title="娱乐" />
-				<mu-tab value="tab5" title="更多" />
-			</mu-tabs>
-			<div v-if="activeTab === 'tab1'">
-				<div class="tuijian">
-						
-         <div class="tuijian_ol">
-					<ol>
-						<li ><button id="one">热门</button></li>
-						<li><button>小吃快餐</button></li>
-						<li><button>面包甜点</button></li>
-						<li><button>川菜</button></li>
-						<li><button>湘菜</button></li>
-						<li><button>北京菜</button></li>
-						<li><button>浙江菜</button></li>
-						<li><button>西餐</button></li>
-					</ol>
-				 </div>
-				 <div class="tuijian_ul">
-				 	<ul>
-				 		<li v-for="data in arr">
-				 				<img :src="data.img" />
-				 				<p class="p4">{{data.title}}</p>
-				 				<p class="p1">{{data.p}}</p>
-				 				<p class="p2">{{data.p1}}</p>
-				 				<p class="p3">{{data.p2}}</p>
-				 				<p class="p5">{{data.p3}}</p>
-				 		</li>
-				 	</ul>
-				 </div>
+
+			<div class="main-navs">
+				<!--获取商品分类数据-->
+				<!-- 				      <swiper :options="swiperOption">
+				        <swiper-slide v-for="(item,index) in shopList" class="nav-slider" :class="{'active':ind == index?'active':''}">
+				        	<span @click="choose(index)">{{item.name}}</span>
+				        </swiper-slide>
+				      </swiper> -->
+
+				<!--商品分类  本地数据-->
+				<swiper :options="swiperOption">
+					<swiper-slide v-for="(item,index) in shopNav" class="nav-slider" :class="{'active':ind == index?'active':''}">
+						<span @click="choose(index)">{{item}}</span>
+					</swiper-slide>
+				</swiper>
+
+			</div>
+
+			<!--商品分类->更多分类  本地数据-->
+			<div class="moreShopnav">
+				<div class="nav-shop">
+					<ul>
+						<li v-for="(item,index) in moreNav" :class="{'bgcolor':ind2 == index? 'bgcolor':''}">
+							<span @click="choose2(index)">{{item}}</span>
+						</li>
+					</ul>
 				</div>
-			</div>
-			<div v-if="activeTab === 'tab2'">
+
+				<!--还有点需要-->
 				<div class="tuijian_ul">
-				 	<ul>
-				 		<li v-for="data in arr">
-				 				<img :src="data.img" />
-				 				<p class="p4">{{data.title}}</p>
-				 				<p class="p1">{{data.p}}</p>
-				 				<p class="p2">{{data.p1}}</p>
-				 				<p class="p3">{{data.p2}}</p>
-				 				<p class="p5">{{data.p3}}</p>
-				 		</li>
-				 	</ul>
-				 </div>
+					<ul class="detail-ul">
+						<li v-for="data in arr">
+							<img :src="data.logo"/>
+							<p class="p1">{{data.store_name}}</p>
+							<p class="p4">{{data.branch_name}}</p>
+						</li>
+					</ul>
+				</div>
+
 			</div>
-			<div v-if="activeTab === 'tab3'">
-				<h2>Tab Three</h2>
-				<p>
-					这是第三个 tab
-				</p>
-			</div>
-			<div v-if="activeTab === 'tab4'">
-				<h2>Tab Three</h2>
-				<p>
-					这是第4个 tab
-				</p>
-			</div>
-			<div v-if="activeTab === 'tab5'">
-				<h2>Tab Three</h2>
-				<p>
-					这是第5个 tab
-				</p>
-			</div>
+
 		</div>
+
 	</div>
 
 </template>
 <script>
+	import { creatParams, BaseUrl } from '../../api/BaseUrl.js';
 	import swiper from '../../common/swiper/swiper.vue'
-	import axios from 'axios'
 	export default {
 		data() {
 			return {
-				 value: '1',
-
+				value: '1',
 				activeTab: 'tab1',
-				arr:[],
-				obj:{
-				   img:[
-				   	"./src/img/around/banner_02.png",
-				"./src/img/around/banner_02.png",
-				"./src/img/around/banner_02.png"
-				   ]
-				}
+				arr: [],
+				citys: [],
+				shopList: [],
+				ind: 0,
+				ind2: 0,
+				obj: {
+					img: [
+						"./src/img/around/banner_02.png",
+						"./src/img/around/banner_02.png",
+						"./src/img/around/banner_02.png"
+					]
+				},
+				selected: "",
+				swiperOption: {
+					slidesPerView: 5,
+					spaceBetween: 5,
+					freeMode: true,
+				},
+				//对应的菜单详情
+				allMenu: [],
+				//本地数据 shopNav
+				shopNav: ["推荐", "餐饮", "酒店", "娱乐", "KTV", "酒店", "火锅"],
+				//更多shopNav
+				moreNav: ["热门", "小吃快餐", "面包甜点", "川菜", "湘菜", "北京菜", "浙江菜", "西餐"]
 			}
 		},
+		components: {
+			"swiper1": swiper
+		},
+		created() {
+			//获取当前城市
+			//			this.getCurrentCity();
+
+			//获取商品分类
+			this.getShopList();
+
+			//推荐商家
+			this.produce_shopHome();
+		},
+
 		methods: {
-			handleTabChange(val) {
-				this.activeTab = val
+			//获取当前城市
+			getCurrentCity() {
+				var data = creatParams('{"act":"getlist"}', '{"token":"1"}');
+				this.$http.post(BaseUrl + "region" + data).then(res => {
+					var result = res.data.data;
+					this.allresult = JSON.parse(Base64.decode(result));
+					this.citys = this.allresult.hot_list;
+				})
+			},
+			//获取商品分类
+			getShopList() {
+				var data = creatParams('{"act":"getlist"}', '{"token":"1"}');
+				this.$http.post(BaseUrl + "plat_category" + data).then(res => {
+					var result = res.data.data;
+					this.allShoplist = JSON.parse(Base64.decode(result));
+					this.shopList = this.allShoplist.category_list;
+				})
+			},
+			//下拉选中城市
+			doAjax(a) {
+				localStorage.setItem("city", a);
+				this.selected = a;
+				var that = this;
+				setTimeout(function() {
+					that.$router.push("city");
+				}, 500)
+			},
+			//选择选中的菜单
+			choose(i) {
+				this.ind = i;
+				//选中哪个获取对应的内容
+				var data = creatParams('{"act":"getlist","cid":i}', '{"token":"1"}');
+				this.$http.post(BaseUrl + "plat_merchant" + data).then(res => {
+					console.log(res.data);
+				})
+			},
+			//更多选项选中
+			choose2(i) {
+				this.ind2 = i;
+				var data = creatParams('{"act":"getlist","cid":i}', '{"token":"1"}');
+				this.$http.post(BaseUrl + "plat_merchant" + data).then(res => {
+					console.log(res.data);
+				})
 			},
 
-		    handleChange (value) {
-		      this.value = value
-		    }
-  
-		},
-		created(){
-			var url = "./src/api/around.json"
-			axios.get(url).then((res)=>{
-				console.log(res.data);
-				this.arr = res.data
-				// for(var i in this.arr){
-				// 	this.obj.img.push(this.arr[i].img)
-				// }
-				
-			})
-		},
-		components:{
-			"swiper1":swiper
+			//推荐商家
+			produce_shopHome() {
+				var data = creatParams('{"act":"recommend","limit":"10"}', '{"token":"1"}');
+				this.$http.post(BaseUrl + "plat_merchant" + data).then(res => {
+					//		    		console.log(JSON.parse(Base64.decode(res.data.data)));
+					this.arr = JSON.parse(Base64.decode(res.data.data));
+					this.arr = this.arr.list;
+				})
+			}
 		}
 	}
 </script>
 
 <style scoped="scoped">
-
-	.swiper1{
-		height:2.84rem;
-		width:100%;
+	.swiper1 {
+		height: 2.84rem;
+		width: 100%;
 	}
-	#header{
+	
+	#header {
 		position: fixed;
 		top: 0;
 		left: 0;
 		z-index: 10;
 	}
-	#box{
-		 height: 1.24rem;
+	
+	#box {
+		height: 1.24rem;
 	}
+	
 	.header {
 		width: 100%;
 		height: 1.24rem;
+		line-height: 1.24rem;
 		background: white;
-		padding-top:0.4rem;
-	}	
-
-
-	#city{
-		border:0;
+	}
+	
+	#city {
+		border: none;
+		width: 1.8rem;
 		font-size: 0.4rem;
-
+		position: absolute;
+		left: 0;
+		top: 0.3rem;
 	}
-	#cityBox{
-		float: left;
-		width: 15%;
-		padding-left: 0.066667rem;
-	}
-	.header span{
+	
+	.header span {
 		display: block;
 		width: 15%;
 		font-size: 0.38rem;
-		float:right;
-		
+		float: right;
 		text-align: center;
-
 	}
-
-
-	#serach{
+	
+	#serach {
 		width: 70%;
 		float: left;
 	}
-	.header input{
-		float: right;
-		/*margin: 0 8%;*/
-		width:100%;
-		height:0.6rem;
+	
+	.header input {
+		margin-left: 2rem;
+		width: 80%;
+		height: 0.6rem;
 		border-radius: 0.266667rem;
 		background: #f2f2f2;
-		border:none;
-		padding-left: 1.5rem;
+		border: none;
+		text-indent: 4em;
 	}
+	
 	.banner {
 		width: 100%;
 		height: 2.813333rem;
 		background: #f1f1f1;
 	}
-	/*tab选型卡样式*/
-	.mu-tabs{
-		background: white;
-		color: black;
-		height:1.08rem;
-	}
-  .mu-tab-link{
-  	color: #999999;
-  }
-  .mu-tab-active{
-		color: #f45971;
-	}
-	/*=====*/
+	/*主体*/
 	
-	/*推荐*/
-	.tuijian{
-		width:100%;
-		height:11.88rem;
-		background: #f2f2f2;
+	.main {
+		width: 100%;
+		height: 100%;
+		/*border: 0.013333rem solid black;*/
 	}
-	.tuijian_ol{
-		width:100%;
-		/*height:1.813333rem;*/
+	/*推荐nav*/
+	
+	.main-navs {
+		/*clear: both;*/
+		width: 100%;
+		height: 1rem;
+		line-height: 1rem;
+		font-size: 0.266666rem;
+		margin-top: 2%;
+		/*background: red;*/
+		text-align: center;
 	}
-	.tuijian ol{
-		width:100%;
-		height:1.813333rem;
-		display: flex;
-		justify-content: space-around;
-		flex-wrap: wrap;
+	
+	.nav-slider {
+		/*border:0.013333rem solid black;*/
+		background: lightpink;
 	}
-	.tuijian ol li{
-		box-sizing: content-box;
-		float: left;
-		width: 21%;
-		padding-top: 0.333333rem;
+	/*默认被选中*/
+	
+	.active {
+		border-bottom: 0.05rem solid red;
 	}
-	.tuijian ol li button:hover,#one{
+	
+	.bgcolor {
 		background: #f45971;
 		color: white;
-		border:0;
 	}
-	.tuijian ol li button{
-		width:100%;
-		height:0.506666rem;
-		background: #ffffff;
-		border: 0.013333rem solid #c7c6c6;
-		border-radius: 0.333333rem;
-		color: #c7c6c6;
+	/*商品分类下的更多分类*/
+	
+	.moreShopnav {
+		width: 100%;
+		height: 100%;
+		background: #F2F2F2;
+		/*border: 1px solid black;*/
 	}
-	.tuijian_ul{
-		width:94%;
-		height:8.4rem;
+	
+	.nav-shop {
+		width: 100%;
+		height: 2.45rem;
+		/*background: red;*/
+	}
+	
+	.nav-shop ul {
+		width: 100%;
+		height: 100%;
+	}
+	
+	.nav-shop ul li {
+		float: left;
+		width: 20%;
+		height: 0.8rem;
+		margin-top: 0.266666rem;
+		margin-left: 4%;
+		border-radius: 0.266666rem;
+		border: 0.013333rem solid #dedede;
+		text-align: center;
+		line-height: 0.8rem;
+	}
+	/*nav-css*/
+	
+	.tuijian_ul {
+		width: 100%;
+		height: 100%;
+	}
+	
+	.detail-ul {
+		width: 94%;
+		height: 100%;
+		/*border: 1px solid black;*/
 		margin: 0 auto;
 	}
-	 .tuijian_ul ul li{
-		width:100%;
-		height:2.506666rem;
+	
+	.detail-ul li {
+		position: relative;
+		width: 100%;
+		height: 2.506666rem;
 		background: white;
+		margin-bottom: 0.266666rem;
 		border-radius: 0.13333rem;
-		margin-top: 0.466666rem;
 		box-shadow: 0 0 0.206667rem #9a9a9a;
-
 	}
-	 .tuijian_ul ul li img{
-		width:1.973333rem;
-		height:1.973333rem;
+	
+	.detail-ul li img {
+		width: 1.973333rem;
+		height: 1.973333rem;
 		margin-top: 0.266666rem;
 		margin-left: 0.266666rem;
 		float: left;
 	}
-	 .tuijian_ul ul li{
-		position: relative;
-	}
-	  .p4{
+	
+	.p4 {
 		font-size: 0.213333rem;
 		position: absolute;
-		left:2.52rem;
+		left: 2.52rem;
 		font-size: 0.333333rem;
-
-		top:0.38rem;
+		top: 0.38rem;
 	}
-	 .p1{
+	
+	.p1 {
 		position: absolute;
-		left:2.52rem;
-		top:1.026666rem;
+		left: 2.52rem;
+		top: 1.026666rem;
 		color: #8f8f8f;
 		font-size: 0.3rem;
-	}
-	 .p2{
-		position: absolute;
-		left:2.52rem;
-
-		top:1.78rem;
-		color: #f56f84;
-	}
-	 .p3{
-		position: absolute;
-		left:5rem;
-		top:1.78rem;
-		color: #8f8f8f;
-	}
-	 .p5{
-		position: absolute;
-		right:0.5rem;
-		top:0.466666rem;
-		color: #8f8f8f;
 	}
 </style>

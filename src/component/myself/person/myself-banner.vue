@@ -1,7 +1,11 @@
 <template>
   <div id="myself-banner">
   	<div class="banner">
+  		<router-link to="/about">
   		<img src="../../../img/myself/banner.jpg">
+  			
+  		</router-link>
+
   	</div>
   </div>
 </template>

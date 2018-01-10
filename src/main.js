@@ -61,6 +61,18 @@ import classifyShop from './component/classify/classify_shop/classify_shop.vue';
 import classifySerch from './component/classify/classify-home/search.vue';
 //登录
 import login from './component/login/index.vue';
+// 关于我们
+import about from './component/myself/set/about.vue';
+// 关于我们-企业简介
+import about_details from './component/myself/set/about_details.vue';
+// 关于我们-企业文化
+import about_culture from './component/myself/set/about_culture.vue';
+// 关于我们-帮助中心
+import about_help from './component/myself/set/about_help.vue';
+//周边列表商品详情
+import around_dataile from './component/around/around_detailed.vue'
+//城市周边
+import city from "./component/around/city.vue";
 var router = new VueRouter({
 	mode: 'history',
 	routes:[
@@ -101,8 +113,13 @@ var router = new VueRouter({
 		{path:"/login",component:login},
 		{path:"/integral",component:integral},
 		{path:"/words",component:words},
-		{path:"/certification",component:certification}
-		
+		{path:"/certification",component:certification},
+		{path:"/about",component:about},
+		{path:"/about_details",component:about_details},
+		{path:"/about_culture",component:about_culture},
+		{path:"/about_help",component:about_help},
+				{path:"/around_dataile",component:around_dataile},
+		{path:"/city",component:city}
 	]
 })
 //
