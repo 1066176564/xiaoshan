@@ -20,6 +20,8 @@
 				</li>
 			</ul>
 		</div>
+
+		<div class="back_top" v-on:click="gotop" v-if="show"><img src="src/img/home/back_top.png"></div>
 	</div>
 </template>
 
@@ -31,13 +33,36 @@
 				arr:["首页","分类","消息","周边","我的"],
 				router:["/home","/classify","/message","/around","/myself"],
 				icon:["home","list","mail_outline","satellite","account_box"],
-				change:0
+				change:0,
+				show: false,
+				scroll: ""
 			}
 		},
-		methods:{
-			atv(i){
-				this.change=i;
+		methods: {
+			atv(i) {
+				this.change = i;
+			},
+			gotop(){
+				var currentScroll = document.documentElement.scrollTop || document.body.scrollTop;
+				if(currentScroll > 0) {
+					window.requestAnimationFrame(this.gotop);
+					window.scrollTo(0, currentScroll - (currentScroll / 5));
+				}
+				this.menu();
+			},
+			menu() {
+				this.scroll = document.documentElement.scrollTop || document.body.scrollTop;
+				if(this.scroll <= 300) {
+					this.show = true;
+					this.show = false;
+				} else {
+					this.show = true;
+				}
 			}
+			
+		},
+		mounted() {
+			window.addEventListener('scroll', this.menu);
 		}
 	}
 </script>
@@ -75,5 +100,13 @@
 	}
 	.active{
 		color:#f4647a;
+	}
+	.back_top img {
+		position: fixed;
+		z-index: 1000;
+		bottom: 1.6rem;
+		right: 0.666666rem;
+		width: 0.633333rem;
+		height: 1.333333rem;
 	}
 </style>

@@ -104,16 +104,16 @@ export default {
     			if(this.show==1){
 		    		var data=creatParams('{"act":"login","username":"13126623791","password":"e10adc3949ba59abbe56e057f20f883e"}',"");
 		    	}else if(this.show==2){
-		    		var data=creatParams('{"act":"login","username":"13126623791","password":"e10adc3949ba59abbe56e057f20f883e"}',"");
+		    		var data=creatParams('{"act":"login","username":"12345678911","password":"e10adc3949ba59abbe56e057f20f883e"}',"");
 		    	}
 		    		
     //请求数据
         this.$http.get(BaseUrl+"plat_user"+data).then(res=>{
           console.log(res)
-        console.log(JSON.parse(Base64.decode(res.data.data)));
+
         var token=JSON.parse(Base64.decode(res.data.data))
 				localStorage.setItem('token',token.userinfo.token)
-				this.$router.push("/home")
+				this.$router.push("/myself")
       })
 
     	}

@@ -3,42 +3,24 @@
     	<div class="integral">
     		<span class="title">积分专区</span>
     		<span class="max"></span>
-    		<span class="max_text">更多</span>
+    		<span class="max_text"><router-link to="/integral_detail">更多</router-link></span>
     	</div>
-      <ul>
-        <router-link to="details">
-          <li>
-            <span class="shop_img1"><img src="../../../img/home/h_home_03.jpg" /></span>
-            <p class="textOne">DANNA 爽肤水</p>
-            <p class="textTwo">3000积分</p>
-          </li>
-        </router-link>
-         <li>
-          <span class="shop_img2"><img src="../../../img/home/h_home_05.jpg" /></span>
-          <span class="textOne">DANNA 爽肤水</span>
-          <span class="textTwo">3000积分</span>
+      <!-- <ul>
+        <li v-for="item in arr1">
+          <router-link :to="'/inte_detail/'+item.id">
+            <span class="shop_img1"><img :src="item.img"></span>
+            <p class="textOne">{{item.p_top}}</p>
+            <p class="textTwo">{{item.p_bottom}}</p>
+          </router-link>
         </li>
-      </ul>
+      </ul> -->
       <ol>
-        <li>
-          <img src="../../../img/home/h_home_15.jpg"/>
-          <p class="p_top">DW 红表</p>
-          <p class="p_bottom">3000积分</p>
-        </li>
-         <li>
-          <img src="../../../img/home/h_home_17.jpg"/>
-          <p class="p_top">DW 红表</p>
-          <p class="p_bottom">3000积分</p>
-        </li>
-         <li>
-          <img src="../../../img/home/h_home_10.jpg"/>
-          <p class="p_top">DW 红表</p>
-          <p class="p_bottom">3000积分</p>
-        </li>
-         <li>
-          <img src="../../../img/home/h_home_12.jpg"/>
-          <p class="p_top">DW 红表</p>
-          <p class="p_bottom">3000积分</p>
+        <li v-for="item in arr">
+          <router-link :to="'/integral_detail/'+item.id">
+            <img :src="item.img">
+            <p class="p_top">{{item.p_top}}</p>
+            <p class="p_bottom">{{item.p_bottom}}</p>
+          </router-link>
         </li>
       </ol>
   </div>
@@ -58,17 +40,40 @@
   font-family: "微软雅黑";
 }
 ol li{
-  width: 25%;
+  width: 24.9%;
   height: 2.84rem;
   float: left;
   text-align: center;
   border-right: 0.026667rem solid #f2f2f2;
 }
-/*ol li:nth-child(2){
+ol li:nth-child(1){
+  width: 50.5%;
+  height: 2.586667rem;
+  float: left;
+  border-right: 0.026667rem solid #f2f2f2;
+  border-bottom: 0.013333rem solid #f2f2f2;
+}
+ol li:nth-child(1) img,ol li:nth-child(2) img{
+  width: 2rem;
+  height: 2rem;
+  float: left;
+}
+ol li:nth-child(1) p,ol li:nth-child(2) p{
+  margin-top: 0.566667rem;
+}
+ol li:nth-child(2){
+  width: 49%;
+  height: 2.586667rem;
+  border-right: none;
+  border-bottom: 0.013333rem solid #f2f2f2;
+  float: left;
+}
+ol li:nth-child(4){
   width: 25.5%
-}*/
+}
 ol li:last-child{
   border: none;
+  width: 24.7%;
 }
 ol li img{
   width: 1.2rem;
@@ -78,7 +83,7 @@ ol li img{
 }
 ol{
   width: 94.6%;
-  height: 2.84rem;
+  height: 5.4rem;
   margin-left: 2.7%;
   float: left;
 }
@@ -91,19 +96,19 @@ ol{
 }
 .textTwo{
   float: left;
+  margin-top: 1.5rem;
   font-size: 0.24rem;
   color: #f45971;
   font-family: "宋体";
 }
 .shop_img1{
   width: 2.106667rem;
-  height: 2.5rem;
+  height: 2.573333rem;
   float: left;
-  overflow: hidden;
 }
 .shop_img2{
   width: 2.32rem;
-  height: 2.5rem;
+  height: 2.573333rem;
   float: left;
 }
 ul li{
@@ -112,11 +117,11 @@ ul li{
   float: left;
 }
 ul li:first-child{
-  width: 50%;
+  width: 50.5%;
   border-right: 0.026667rem solid #f2f2f2;
 }
 ul li:last-child{
-  width: 50%;
+  width: 49%;
 }
 ul{
   width: 94.6%;
@@ -172,12 +177,28 @@ ul{
 
 
 <script>
+import axios from 'axios'
 export default {
   name: 'app',
   data () {
     return {
-
+      arr:[]
     }
+  },
+  created(){
+    this.Default_Request()
+  },
+  methods:{
+    Default_Request(){
+      var url = "../../src/api/integral.json";
+      axios.get(url).then((res)=>{
+        this.arr = res.data;
+        console.log(this.arr)
+      })
+    }
+
+
   }
 }
 </script>
+

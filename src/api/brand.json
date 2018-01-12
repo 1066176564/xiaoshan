@@ -1,0 +1,30 @@
+[
+ {
+	 "id":1,
+	 "img_left":"./src/img/home/h_home_10.jpg",
+	 "img_right":"./src/img/home/h_home_12.jpg",
+	 "title":"每日优选",
+	 "refe":"正品保障15天售后无忧"
+ },
+ {
+	 "id":2,
+	 "img_left":"./src/img/home/h_home_15.jpg",
+	 "img_right":"./src/img/home/h_home_17.jpg",
+	 "title":"全球品牌动态",
+	 "refe":"1253个品牌资讯和上新"
+ },
+ {
+	 "id":3,
+	 "img_left":"./src/img/home/h_homes_11.jpg",
+	 "img_right":"./src/img/home/h_homes_12.jpg",
+	 "title":"每日优选",
+	 "refe":"正品保障15天售后无忧"
+ },
+ {
+	 "id":4,
+	 "img_left":"./src/img/home/h_home_05.jpg",
+	 "img_right":"./src/img/home/h_home_03.jpg",
+	 "title":"全球品牌动态",
+	 "refe":"1253个品牌资讯和上新"
+ }
+]

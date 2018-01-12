@@ -31,18 +31,18 @@
 
 			<div class="main-navs">
 				<!--获取商品分类数据-->
-				<!-- 				      <swiper :options="swiperOption">
-				        <swiper-slide v-for="(item,index) in shopList" class="nav-slider" :class="{'active':ind == index?'active':''}">
-				        	<span @click="choose(index)">{{item.name}}</span>
-				        </swiper-slide>
-				      </swiper> -->
+						<swiper :options="swiperOption">
+				        	<swiper-slide v-for="(item,index) in shopList" class="nav-slider" :class="{'active':ind == index?'active':''}">
+				        		<span @click="choose(index)">{{item.name}}</span>
+				        	</swiper-slide>
+				      	</swiper>
 
 				<!--商品分类  本地数据-->
-				<swiper :options="swiperOption">
+<!-- 				<swiper :options="swiperOption">
 					<swiper-slide v-for="(item,index) in shopNav" class="nav-slider" :class="{'active':ind == index?'active':''}">
 						<span @click="choose(index)">{{item}}</span>
 					</swiper-slide>
-				</swiper>
+				</swiper> -->
 
 			</div>
 
@@ -59,7 +59,7 @@
 				<!--还有点需要-->
 				<div class="tuijian_ul">
 					<ul class="detail-ul">
-						<li v-for="data in arr">
+						<li v-for="data in arr" @click="getshopId(data.bid)">
 							<img :src="data.logo"/>
 							<p class="p1">{{data.store_name}}</p>
 							<p class="p4">{{data.branch_name}}</p>
@@ -176,6 +176,10 @@
 					this.arr = JSON.parse(Base64.decode(res.data.data));
 					this.arr = this.arr.list;
 				})
+			},
+			getshopId(bid){
+				sessionStorage.setItem("id",bid)
+				this.$router.push("/around_dataile")
 			}
 		}
 	}

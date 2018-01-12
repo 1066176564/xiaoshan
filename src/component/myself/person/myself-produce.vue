@@ -59,6 +59,6 @@ export default {
     color: red;
   }
   ul li img{
-    width: 100%;
+    width:3.333333rem;
   }
 </style>

@@ -9,17 +9,20 @@
 			
 			<div class="kinds">
 				<ul>
-					<router-link to="/home/gsdt/gsdt_detail">
+					
 					<li v-for="item in arr">
-						<div class="img_left">
-							<img :src="item.img"/>
-						</div>
-						<div class="text_right">
-							<p>{{item.text}}</p>
-							<span>{{item.time}}</span>
-						</div>
+						<router-link :to="'/home/gsdt/gsdt_detail/'+item.id">
+							<div class="img_left">
+								<img :src="item.img"/>
+							</div>
+							<div class="text_right">
+								<p>{{item.text}}</p>
+								<span>{{item.time}}</span>
+								<p class="main_title">{{item.title}}</p>
+							</div>
+						</router-link>
 					</li>
-					</router-link>
+					
 				</ul>
 			</div>
 		</div>
@@ -44,7 +47,8 @@
 				this.$router.back(-1)
 			},
 			query(){
-				axios.get("../.././src/api/gsdt.json").then((res)=>{
+				var url = "../../src/api/gsdt.json";
+				axios.get(url).then((res)=>{
 					console.log(res.data);
 					this.arr = res.data;
 				})
@@ -103,18 +107,19 @@
 	.img_left{
 		width: 2.933333rem;
 		height: 1.866666rem;
-		/*background: red;*/
+		float: left;
 		margin-left: 0.266666rem;
 	}
 	.img_left img{
 		width: 2.933333rem;
 		height: 1.866666rem;
+		float: left;
 	}
 	.text_right{
 		width: 6.346666rem;
 		height: 1.866666rem;
-		/*background: green;*/
 		margin-left: 0.253333rem;
+		float: left;
 	}
 	.text_right p{
 		font-size: 0.373333rem;
@@ -122,10 +127,22 @@
 		padding-top: 0.25rem;
 		letter-spacing: 0.009955rem;
 		color:#333333;
+		float: left;
 	}
 	.text_right span{
 		float:right;
-		margin-top: 0.4rem;
+		margin-top: 0.5rem;
 		color:#b0b0b0;
+	}
+	.text_right .main_title{
+		width: 1.333333rem;
+		height: 0.5rem;
+		line-height: 0.05rem;
+		text-align: center;
+		float: left;
+		border-radius: 0.133333rem;
+		background-color: red;
+		color: white;
+		margin-top: 0.4rem;
 	}
 </style>

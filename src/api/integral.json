@@ -1,36 +1,8 @@
 [
-	{	
-		"today":[
-			   {
-					"detail":"参加【天骏手表】店铺活动-奖励","price":"￥2999.00","integral":"+20"
-				},
-				{
-					"detail":"参加【天骏手表】店铺活动-奖励","price":"￥2100.00","integral":"+10"
-				}
-			]
-	},
-
-
-	{
-		"yesterday":[
-			{
-					"detail":"参加【天骏手表】店铺活动-奖励","price":"￥1000.00","integral":"+21"
-				},
-				{
-					"detail":"参加【天骏手表】店铺活动-奖励","price":"￥599.00","integral":"+51"
-				}
-			]
-	},
-
-
-	{
-		"out":[
-			{
-					"detail":"参加【天骏手表】店铺活动-奖励","price":"￥799.00","integral":"+20"
-				},
-				{
-					"detail":"参加【天骏手表】店铺活动-奖励","price":"￥699.00","integral":"+12"
-				}
-			]
-	}
+		{"id":"0","img":"../src/img/home/h_home_03.jpg","p_top":"爽肤水","p_bottom":"3000积分"},
+		{"id":"1","img":"../src/img/home/h_home_05.jpg","p_top":"BB霜","p_bottom":"3000积分"},
+		{"id":"2","img":"../src/img/home/h_home_15.jpg","p_top":"DW红表","p_bottom":"3000积分"},
+		{"id":"3","img":"../src/img/home/h_home_17.jpg","p_top":"DW防晒霜","p_bottom":"3000积分"},
+		{"id":"4","img":"../src/img/home/h_home_10.jpg","p_top":"NIKE运动鞋","p_bottom":"3000积分"},
+		{"id":"5","img":"../src/img/home/h_home_12.jpg","p_top":"女士皮包","p_bottom":"3000积分"}
 ]

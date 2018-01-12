@@ -4,45 +4,67 @@
 	    <div class="recommend">
 	    	<span class="title">推荐宝贝</span>
 	    	<span class="max"></span>
-	    	<span class="max_text">更多</span>
 	    </div>
 		
 		<ul>
-			<router-link to="details">
-				<li>
-					<img src="../../../img/home/h_home_34.jpg"/>
-					<p class="p_one">漫步者蓝牙系列明星爆品 音质出色 持久续航 精致工艺</p>
-					<p class="p_two">￥299 <small>1345人付款</small></p>
-				</li>
-			</router-link>
-			<router-link to="details">
-			<li>
-				<img src="../../../img/home/h_home_36.jpg"/>
-				<p class="p_one">漫步者蓝牙系列明星爆品 音质出色 持久续航 精致工艺</p>
-				<p class="p_two">￥299 <small>1345人付款</small></p>
+			<li v-for="data in arr">
+				<router-link :to="'/Recommend_list/'+data.id">
+				<img :src="data.img"/>
+				<p class="p_one">{{data.name}}</p>
+				<p class="p_two">￥{{data.price}}<small>1345人付款</small></p>
+				</router-link>
 			</li>
-			</router-link>
-			<router-link to="details">
-			<li>
-				<img src="../../../img/home/h_home_34.jpg"/>
-				<p class="p_one">漫步者蓝牙系列明星爆品 音质出色 持久续航 精致工艺</p>
-				<p class="p_two">￥299 <small>1345人付款</small></p>
-			</li>
-			</router-link>
-			<router-link to="details">
-			<li>
-				<img src="../../../img/home/h_home_36.jpg"/>
-				<p class="p_one">漫步者蓝牙系列明星爆品 音质出色 持久续航 精致工艺</p>
-				<p class="p_two">￥299 <small>1345人付款</small></p>
-			</li>
-			</router-link>
+			<mu-infinite-scroll :scroller="scroller" :loading="loading" @load="loadMore"/>
 		</ul>
-
-		<p style="margin-bottom:4.0rem;float:left"></p>
-  		
+		
   	</div>
   </div>
 </template>
+
+<script>
+	import axios from 'axios'
+	export default {
+		name: 'app',
+		data() {
+			return {
+				arr:[],
+				id:"",
+				loading: false,
+      	scroller: null
+			}
+		},
+		created(){
+			var id = this.$route.params.id;
+			console.log(id)
+			var url = "./src/api/Recommend_List.json"
+			axios.get(url).then((res)=>{
+				this.arr = res.data
+				
+			})
+		}, 
+		mounted () {
+    this.scroller = this.$el
+  },
+  methods: {
+    loadMore () {
+      this.loading = true
+      const url = "./src/api/Recommend_List.json";
+  	
+  	axios.get(url).then((res)=>{
+  		setTimeout(() => {
+			for(var i=0;i<res.data.length;i++){
+  			this.arr.push(res.data[i]);
+				
+			}
+  		this.loading = false
+  		 }, 2000)
+
+  	})
+
+    }
+  }
+	}
+</script>
 
 <style scoped="scoped">
 .p_one{
@@ -91,15 +113,6 @@ ul{
   -webkit-text-fill-color: transparent;
   text-transform: uppercase;
 }
-.max_text{
-	display: block;
-	float: right;
-	font-size: 0.24rem;
-	padding-top: 0.02rem;
-  color: #999999;
-  font-family: "宋体";
-  font-weight: bold;
-}
 .max{
 	display: block;
 	width: 0.32rem;
@@ -127,14 +140,3 @@ ul{
 	margin-bottom: 1.293333rem;
 }
 </style>
-
-<script>
-export default {
-  name: 'app',
-  data () {
-    return {
-
-    }
-  }
-}
-</script>

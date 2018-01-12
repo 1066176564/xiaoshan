@@ -31,7 +31,10 @@ import gsdt from './component/home/home-gsdt/gsdt.vue';
 import gsdt_detail from './component/home/home-gsdt/detail/gsdt_detail';
 import searchx from './component/home/search.vue'
 
-
+//积分专区
+import integral_detail from './component/home/integral/detail/integral_detail.vue'
+//首页活动
+//import activity from './component/home/classification/activity/activity.vue'
 import classify from './component/classify/index.vue';
 import message from './component/message/index.vue';
 import myself from './component/myself/index.vue';
@@ -70,9 +73,13 @@ import about_culture from './component/myself/set/about_culture.vue';
 // 关于我们-帮助中心
 import about_help from './component/myself/set/about_help.vue';
 //周边列表商品详情
-import around_dataile from './component/around/around_detailed.vue'
+import around_dataile from './component/around/around_detailed.vue';
 //城市周边
 import city from "./component/around/city.vue";
+import brand_list from './component/home/brand/brand_list.vue';
+import Recommend_list from './component/home/Recommend/Recommend_list.vue';
+import activity from './component/home/classification/activity/activity.vue';
+
 var router = new VueRouter({
 	mode: 'history',
 	routes:[
@@ -96,7 +103,7 @@ var router = new VueRouter({
 			]
 			,meta:{navShow:true}
 		},
-		{path:"/myself",component:myself,meta:{navShow:true}},
+		{path:"/myself",component:myself,meta:{navShow:true,requiresAuth:true}},
 		{path:"/around",component:around,meta:{navShow:true}},
 		{path:"/address",component:address},
 		{path:"/newaddress",component:newaddress},
@@ -118,8 +125,13 @@ var router = new VueRouter({
 		{path:"/about_details",component:about_details},
 		{path:"/about_culture",component:about_culture},
 		{path:"/about_help",component:about_help},
-				{path:"/around_dataile",component:around_dataile},
-		{path:"/city",component:city}
+		{path:"/around_dataile",component:around_dataile},
+		{path:"/city",component:city},
+		{path:"/integral_detail/:id",component:integral_detail},
+		{path:"/Recommend_list/:id",component:Recommend_list},
+		{path:"/brand_list/:id",component:brand_list},
+		{path:"/activity",component:activity}
+
 	]
 })
 //
@@ -131,6 +143,17 @@ import {Base64} from 'js-base64';
  
  Vue.prototype.md5 = md5;
  Vue.prototype.Base64 = Base64;
+
+router.beforeEach((to, from, next) => { 
+    //to即将进入的目标路由对象，from当前导航正要离开的路由， next : 下一步执行的函数钩子
+    if(to.path === '/login') { next() } // 如果即将进入登录路由，则直接放行
+     else {   //进入的不是登录路由
+         if(to.meta.requiresAuth && !localStorage.getItem('token')) {next({ path: '/login' })}
+       //下一跳路由需要登录验证，并且还未登录，则路由定向到 登录路由
+       else { next() }
+      }
+      //如果不需要登录验证，或者已经登录成功，则直接放行
+ })
 
 new Vue({
   el: '#app',

@@ -1,6 +1,7 @@
 <template>
 	<div id="app">
 		<div class="gsdtDetail-page">
+			
 			<!--公司动态标题-->
 			<div class="title">
 				<img src="../../../../img/home/h-return_03.jpg" @click="back"/>
@@ -21,21 +22,20 @@
 				</div>
 				<!--头像跟前文本-->
 				<div class="tx-text">
-					<p>编辑:独角兽</p>
-					<p>时间:2017-12-06</p>
+					<p>编辑:{{json.bj}}</p>
+					<p>时间:{{json.time}}</p>
 				</div>
 			</div>
 			
 			<!--共建网络--CBK  -->
 			<div class="cbk-title">
-				共建网络空间命运<br/>共同体,CBK一马当先
+				{{json.text}}
 			</div>
 			
 			
 			<!--第一段文字-->
 			<div class="firstP">
-				12月3日，第四届世界互联网大会正式开幕。本届的主题是“发展数字经济促进开放共享——携手共
-				建网络空间命运共同体”。来自全球1500位嘉宾在浙江乌镇参会，同时。
+				{{json.xq_top}}
 			</div>
 			
 			<!--文字下的图片-->
@@ -46,23 +46,42 @@
 			
 			<!--第二段文字-->
 			<div class="twoP">
-				12月3日，第四届世界互联网大会正式开幕。本届的主题是“发展数字经济促进开放共享——携手共
-				建网络空间命运共同体”。来自全球1500位嘉宾在浙江乌镇参会，同时。
+				{{json.xq_bottom}}
 			</div>
 		</div>
 	</div>
 </template>
 
 <script>
+import axios from 'axios'
 	export default {
 		data(){
 			return {
-				
+				arr:[],
+				json:[]
 			}
+		},
+		created(){
+			this.xq()
 		},
 		methods:{
 			back(){
 				this.$router.back(-1)
+			},
+			xq(){
+				var id = this.$route.params.id;
+				axios.get("../../../src/api/gsdt.json").then((res)=>{
+					console.log(res.data);
+					this.arr = res.data;
+					console.log(id);
+					for(var i=0;i<this.arr.length;i++){
+						console.log(this.arr[i].id)
+						if(this.arr[i].id==id){
+							this.json = this.arr[i]
+							console.log(this.json)
+						}
+					}
+				})
 			}
 		}
 	}
