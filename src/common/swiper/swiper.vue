@@ -1,8 +1,12 @@
 <template>
   <swiper :options="swiperOption" ref="mySwiper">
     <!-- slides -->
-    <swiper-slide v-for="img in imgs"><img :src="img"></swiper-slide>
-  
+    <swiper-slide v-for="img in imgs" v-if="text==false">
+      <img :src="img"  >
+    </swiper-slide>
+     <swiper-slide v-for="te in texts" v-if="text">
+      <div style="width:100%;height:100%;">{{te}}</div>
+    </swiper-slide>
     <div class="swiper-pagination"  slot="pagination" v-if="pagination2"></div>
     <div class="swiper-button-prev" slot="button-prev" v-if="button"></div>
     <div class="swiper-button-next" slot="button-next" v-if="button"></div>
@@ -27,11 +31,13 @@
       	button:false,
       	scrollbar:false,
       	imgs:"",
-      	
+      	text:false,
+        texts:[],
         swiperOption: {
-            loop: true,
-        	 spaceBetween: 30,
+          loop: true,
+        	spaceBetween: 30,
           centeredSlides: true,
+          direction: 'horizontal',
         	autoplay: {
             delay: 2500,
             disableOnInteraction: false
@@ -45,8 +51,27 @@
       }
     },
     created(){
-    	this.imgs=this.data.img
+      if(!this.data.img){
+
+      }else{
+
+      this.imgs=this.data.img
+
+      }
+      if(!this.data.font){
+
+      }else{
+      this.texts=this.data.font
+        
+      }
+      if(!this.data.text){
+
+      }else{
+      this.text=this.data.text
+        
+      }
     	// console.log(this.data)
+
     	if(!this.data.pagination){
 
     	}else{
@@ -66,6 +91,12 @@
     	}else{
     		this.scrollbar=this.data.scrollbar
     	}
+
+      if(!this.data.direction){
+
+      }else{
+        this.swiperOption.direction=this.data.direction
+      }
     },
     computed: {
       swiper() {

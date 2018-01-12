@@ -11,7 +11,7 @@
 				<ul>
 					
 					<li v-for="item in arr">
-						<router-link :to="'/home/gsdt/gsdt_detail/'+item.id">
+						<router-link :to="'/gsdt_detail/'+item.id">
 							<div class="img_left">
 								<img :src="item.img"/>
 							</div>
@@ -27,7 +27,7 @@
 			</div>
 		</div>
 		
-		<router-view></router-view>
+
 	</div>
 </template>
 
@@ -47,7 +47,7 @@
 				this.$router.back(-1)
 			},
 			query(){
-				var url = "../../src/api/gsdt.json";
+				var url = "./src/api/gsdt.json";
 				axios.get(url).then((res)=>{
 					console.log(res.data);
 					this.arr = res.data;

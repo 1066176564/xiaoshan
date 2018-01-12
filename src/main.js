@@ -87,23 +87,9 @@ var router = new VueRouter({
 		{path:"/",redirect:"home",meta:{navShow:true}},
 		{path:"/classify",component:classify,meta:{navShow:true}},
 		{path:"/message",component:message,meta:{navShow:true}},
-		{
-			path:"/home",
-			component:home,
-			children:[
-				{
-					path:"/home/gsdt",
-					component:gsdt,
-					children:[
-						{
-							path:"/home/gsdt/gsdt_detail",
-							component:gsdt_detail
-						}
-					]
-				}
-			]
-			,meta:{navShow:true}
-		},
+		{path:"/home",component:home,meta:{navShow:true}},
+		{path:"/gsdt",component:gsdt,},
+		{path:"/gsdt_detail/:id",component:gsdt_detail},
 		{path:"/myself",component:myself,meta:{navShow:true,requiresAuth:true}},
 		{path:"/around",component:around,meta:{navShow:true}},
 		{path:"/address",component:address},

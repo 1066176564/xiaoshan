@@ -3,7 +3,7 @@
     		<heads></heads>
 		    <classification></classification>
 		    
-		    <router-link to="/home/gsdt">
+		    <router-link to="/gsdt">
 			  <dynamic></dynamic>
 			  </router-link>
 			  
@@ -13,7 +13,7 @@
 			  <Recommend></Recommend>
 			  
 			  
-				<router-view></router-view>
+
    
   </div>
 </template>
