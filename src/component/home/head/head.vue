@@ -6,7 +6,7 @@
 				<span class="left"></span>
 			</router-link>
 			<p>小善</p>
-			<router-link to='/loading' tag='span'>
+			<router-link to='/shopingCart' tag='span'>
 				<span class="right"></span>
 			</router-link>
 		</div>

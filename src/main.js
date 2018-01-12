@@ -79,7 +79,8 @@ import city from "./component/around/city.vue";
 import brand_list from './component/home/brand/brand_list.vue';
 import Recommend_list from './component/home/Recommend/Recommend_list.vue';
 import activity from './component/home/classification/activity/activity.vue';
-
+//购物车
+import shopingCart from './component/shopingCart/index.vue';
 var router = new VueRouter({
 	mode: 'history',
 	routes:[
@@ -130,8 +131,9 @@ var router = new VueRouter({
 		{path:"/integral_detail/:id",component:integral_detail},
 		{path:"/Recommend_list/:id",component:Recommend_list},
 		{path:"/brand_list/:id",component:brand_list},
-		{path:"/activity",component:activity}
-
+		{path:"/activity",component:activity},
+		{path:"/shopingCart",component:shopingCart}
+		
 	]
 })
 //
