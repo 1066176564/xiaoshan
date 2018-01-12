@@ -233,7 +233,8 @@
 					img: [],
 					pagination: true,
 					loop: 2000
-				}
+				},
+
 			}
 		},
 		components: {
@@ -246,6 +247,8 @@
 			var url = "../.././src/api/Recommend_List.json"
 			axios.get(url).then((res) => {
 				this.arr2=res.data[id-1];
+				this.str=JSON.stringify(this.arr2)
+				console.log(this.arr2)
 				this.obj.img.push(this.arr2.img)
 			})
 		},
@@ -281,21 +284,38 @@
 				this.kuan = false;
 			},
 			urteilen1() {
-				if(this.username == null) {
+				
+				if(localStorage.getItem("token") == null) {
 					alert("没有登录")
 					//      this.$router.push('/Ready');
-				} else if(this.username != null) {
-					alert("成功")
+				} else if(localStorage.getItem("token") != null) {
+
 					//      this.$router.push('/tab2');
+					if(localStorage.getItem("arr")==undefined){
+						localStorage.setItem("arr",JSON.stringify(this.arr2))
+						
+					}else{
+						var arrs=[]
+						var a=localStorage.getItem("arr")
+						a=JSON.parse(a)
+						for(var i=0;i<a.length;i++){
+							arrs.push(a[i])
+						}
+						arrs.push(this.arr2)
+						console.log(arrs)
+						localStorage.setItem("arr",JSON.stringify(arrs))
+					}
+					
 				}
 			},
 			urteilen() {
-				if(this.username == null) {
+				if(localStorage.getItem("token") == null) {
 					alert("没有登录")
 					//      this.$router.push('/Ready');
-				} else if(this.username != null) {
-					alert("成功")
+				} else if(localStorage.getItem("token") != null) {
+
 					//      this.$router.push('/order_form');
+					localStorage.setItem("arr",this.str)
 				}
 			},
 			// 减--

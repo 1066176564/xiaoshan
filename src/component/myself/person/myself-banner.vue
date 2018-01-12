@@ -7,6 +7,7 @@
   		</router-link>
 
   	</div>
+  	<button @click="tcdl()">退出登录</button>
   </div>
 </template>
 
@@ -17,6 +18,11 @@ export default {
     return {
 
     }
+  },methods:{
+  	tcdl(){
+  		localStorage.removeItem('token');
+  		this.$router.push("/home")
+  	}
   }
 }
 </script>
@@ -24,7 +30,7 @@ export default {
 <style scoped="scoped">
 	#myself-banner{
 		width: 100%;
-		height:2.746667rem;
+/*		height:2.746667rem;*/
 		margin: 0 auto;
 		background: #ffffff;
 		padding-top: 0.453333rem;
@@ -40,5 +46,16 @@ export default {
 		width: 100%;
 		height:4.293333rem;
 		border-radius: 0.2rem;
+	}
+	button{
+		width: 80%;
+		height:1.066666rem;
+		background: red;
+		border-radius: 0.2rem;
+	  margin-left: 10%;
+	  margin-top: 0.533333rem;
+	  color: #ffffff;
+	  font-size: 0.373333rem;
+	  border:none;
 	}
 </style>

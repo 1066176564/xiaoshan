@@ -9,25 +9,18 @@
       <div id="main">
           <div class="main_child" v-for=" data in json">
              
-              <div class="shop_name" style="float:left">
-                <div class="check1" ><check1 :data2="data"></check1> </div>
-                {{data.name}}
-            </div>
+            
 
-              <div class="goods" v-for="data2 in data.data">
-              <div class="check"><check1 :data2="data2"></check1> </div>
-              <div class="left"><img :src="data2.img"></div>
+              <div class="goods">
+              <div class="check"><check1 :data="data"></check1> </div>
+              <div class="left"><img :src="data.img"></div>
               <div class="right">
-                <p>{{data2.name}}</p>
-                <p style="font-size:0.293333rem;color:#b3b3b3;height:0.8rem;"><span>颜色：{{data2.color}}</span>
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  <span>尺寸：{{data2.size}}</span>
-                </p>
+                <p>{{data.name}}</p>
+                
                 <p style="overflow:hidden;"> 
-                  <span style="color:#f78395;">￥{{data2.price}}</span> &nbsp;
-                  <span style="font-size:0.28rem;color:#b3b3b3;text-decoration:line-through ">￥{{data2.oldPrice}}</span>
+                  <span style="color:#f78395;">￥{{data.price}}</span>
                   <span style="float:right; display:block;width:1.8rem;">
-                    <controller1 :data2="data2" style="width: 100%;display: flex;justify-content: flex-end;"></controller1>  
+                    <controller1 :data="data" style="width: 100%;display: flex;justify-content: flex-end;"></controller1>  
                   </span>
                   <div style="clear:both"></div>
                 </p>
@@ -60,21 +53,11 @@ export default {
  },
   created(){
   	
-	 // LocalStorage.setItem("Cart")
-	var url="./src/api/cart.json"
-  	axios.get(url).then((res)=>{
-      this.json=res.data
-      // console.log(this.json)
-      for(var i in this.json){
-        for(var i2 in this.json[i].data){
-          this.json[i].data[i2].check=0
-          this.json[i].data[i2].num=1
-          console.log(this.json[i].data[i2])
+	this.json=localStorage.getItem("arr")
+	this.json=JSON.parse(this.json)
+	console.log(this.json)
 
-        }
-      }
 
-    })
   },
   components:{
     "controller1":controller,
