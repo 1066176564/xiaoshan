@@ -2,15 +2,21 @@
   <div id="myself-produce">
    	<ul v-if="result!=null">
       <li>
-        <img src="../../../img/myself/5a2fc41cN70b5fb72.jpg">
+        <div class="img1">
+          
+        </div>
         <p>消费总额:<br/>{{result.block_count.total_consume}}万元</p>
       </li>
       <li>
-        <img src="../../../img/myself/5a2fc41cN70b5fb72.jpg">
+        <div class="img2">
+          
+        </div>
         <p>用户人数:<br/>{{result.block_count.user_count}}人</p>
       </li>
       <li>
-        <img src="../../../img/myself/5a2fc41cN70b5fb72.jpg">
+        <div class="img3">
+          
+        </div>
         <p>店铺数量:<br/>{{result.block_count.business_count}}个</p>
       </li>
     </ul>
@@ -41,12 +47,12 @@ export default {
 	#myself-produce{
     border-top: 1px solid #f2f2f2;
 		width: 100%;
-    height:4.9rem;
+    height:4rem;
 		background: #ffffff;
 	}
   ul{
     width: 100%;
-    height:4.6rem;
+    height:4rem;
     display: flex;
     text-align: center;
   }
@@ -58,7 +64,33 @@ export default {
     font-weight: bolder;
     color: red;
   }
-  ul li img{
-    width:3.333333rem;
+  ul li .img1{
+    width: 1.466666rem;
+    height: 2rem;
+    margin: 0 auto;
+    margin-top: 0.746667rem;
+    background: url(../../../img/myself/content.png) no-repeat;
+    background-size: 14.4rem 1.626667rem;
+    background-position: -1.666667rem -0.08rem;
+  }
+
+  ul li .img2{
+    width:  1.466666rem;
+    height: 2rem;
+    margin: 0 auto;
+    margin-top: 0.746667rem;
+    background: url(../../../img/myself/content.png) no-repeat;
+    background-size: 14.4rem 1.626667rem;
+    background-position: -6.453333rem -0.08rem;
+  }
+
+  ul li .img3{
+    width:  1.466666rem;
+    height: 2rem;
+    margin: 0 auto;
+    margin-top: 0.746667rem;
+    background: url(../../../img/myself/content.png) no-repeat;
+    background-size: 14.4rem 1.626667rem;
+    background-position: -11.28rem -0.08rem;
   }
 </style>
