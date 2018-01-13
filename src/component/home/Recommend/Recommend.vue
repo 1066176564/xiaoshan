@@ -14,7 +14,7 @@
 				<p class="p_two">￥{{data.price}}<small>1345人付款</small></p>
 				</router-link>
 			</li>
-			<mu-infinite-scroll :scroller="scroller" :loading="loading" @load="loadMore"/>
+			<!--<mu-infinite-scroll :scroller="scroller" :loading="loading" @load="loadMore"/>-->
 		</ul>
 		
   	</div>
@@ -22,7 +22,9 @@
 </template>
 
 <script>
-	import axios from 'axios'
+import { commonajax,dataUrl} from "../../../api/shopCommon.js"
+	import {creatParams,BaseUrl} from '../../../api/BaseUrl.js'
+ 	import md5 from 'js-md5';
 	export default {
 		name: 'app',
 		data() {
@@ -34,13 +36,12 @@
 			}
 		},
 		created(){
-			var id = this.$route.params.id;
-			console.log(id)
-			var url = "./src/api/Recommend_List.json"
-			axios.get(url).then((res)=>{
-				this.arr = res.data
-				
-			})
+
+			var data = {
+				act:"recommendGoodsList"
+			}
+			var s=commonajax(dataUrl.shop_goods,data)
+			console.log(JSON.parse(Base64.decode(data.data)))
 		}, 
 		mounted () {
     this.scroller = this.$el

@@ -113,7 +113,7 @@
 		},
 		created() {
 			//获取当前城市
-			//			this.getCurrentCity();
+						this.getCurrentCity();
 
 			//获取商品分类
 			this.getShopList();
